@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>GitHub on 潘旺基の博客</title>
+        <link>http://localhost:1313/tags/github/</link>
+        <description>Recent content in GitHub on 潘旺基の博客</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Sun, 09 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/github/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>个人博客搭建Hugo&#43;GitHub托管</title>
+        <link>http://localhost:1313/post/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BAhugo&#43;github%E6%89%98%E7%AE%A1/</link>
+        <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/post/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BAhugo&#43;github%E6%89%98%E7%AE%A1/</guid>
+        <description>&lt;h1 id=&#34;个人博客搭建hugogithub托管&#34;&gt;个人博客搭建Hugo+GitHub托管
+&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;h2 id=&#34;安装hugo&#34;&gt;安装Hugo
+&lt;/h2&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;使用Chocolatey搭建&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;安装 &lt;a class=&#34;link&#34; href=&#34;https://chocolatey.org/install&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://chocolatey.org/install&lt;/a&gt;（包管理器）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;  PowerShell执行管理员身份下面命令先安装&lt;strong&gt;Chocolatey&lt;/strong&gt;&lt;/p&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
