@@ -7,34 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Example Person</copyright>
-        <lastBuildDate>Sun, 09 Mar 2025 13:07:12 +0800</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>个人博客搭建Hugo&#43;GitHub托管</title>
-        <link>http://localhost:1313/post/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BAhugo&#43;github%E6%89%98%E7%AE%A1/</link>
-        <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
-        
-        <guid>http://localhost:1313/post/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BAhugo&#43;github%E6%89%98%E7%AE%A1/</guid>
-        <description>&lt;h1 id=&#34;个人博客搭建hugogithub托管&#34;&gt;个人博客搭建Hugo+GitHub托管
-&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;
-&lt;h2 id=&#34;安装hugo&#34;&gt;安装Hugo
-&lt;/h2&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;使用Chocolatey搭建&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;安装 &lt;a class=&#34;link&#34; href=&#34;https://chocolatey.org/install&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://chocolatey.org/install&lt;/a&gt;（包管理器）。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;  PowerShell执行管理员身份下面命令先安装&lt;strong&gt;Chocolatey&lt;/strong&gt;&lt;/p&gt;</description>
-        </item>
-        <item>
-        <title>Markdown Syntax Guide</title>
-        <link>http://localhost:1313/post/markdown-syntax/</link>
-        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-        
-        <guid>http://localhost:1313/post/markdown-syntax/</guid>
-        <description>&lt;img src="http://localhost:1313/post/markdown-syntax/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown Syntax Guide" /&gt;&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
-        </item>
-        <item>
+        <lastBuildDate>Sun, 09 Mar 2025 22:21:47 +0800</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Rich Content</title>
         <link>http://localhost:1313/post/rich-content/</link>
         <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
@@ -46,6 +19,14 @@
         </item>
         <item>
         <title>Placeholder Text</title>
+        <link>http://localhost:1313/post/markdown-syntax/</link>
+        <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/post/markdown-syntax/</guid>
+        <description>&lt;img src="http://localhost:1313/matt-le-SJSpo9hQf7s-unsplash.jpg" alt="Featured image of post Placeholder Text" /&gt;&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title>Placeholder Text</title>
         <link>http://localhost:1313/post/placeholder-text/</link>
         <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
         
@@ -54,11 +35,27 @@
         </item>
         <item>
         <title>Emoji Support</title>
-        <link>http://localhost:1313/post/emoji-support/</link>
+        <link>http://localhost:1313/post/enjoy/</link>
         <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/post/emoji-support/</guid>
-        <description>&lt;img src="http://localhost:1313/post/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" /&gt;&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
+        <guid>http://localhost:1313/post/enjoy/</guid>
+        <description>&lt;img src="http://localhost:1313/post/enjoy/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" /&gt;&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
+        </item>
+        <item>
+        <title></title>
+        <link>http://localhost:1313/post/git/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/post/git/</guid>
+        <description>&lt;h2 id=&#34;1-安装hugo&#34;&gt;1. 安装Hugo
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;使用Chocolatey搭建&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;安装 &lt;a class=&#34;link&#34; href=&#34;https://chocolatey.org/install&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://chocolatey.org/install&lt;/a&gt;（包管理器）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;PowerShell执行管理员身份下面命令先安装&lt;strong&gt;Chocolatey&lt;/strong&gt;&lt;/p&gt;</description>
         </item>
         <item>
         <title>Math Typesetting</title>
