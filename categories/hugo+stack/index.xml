@@ -9,11 +9,11 @@
         <copyright>潘旺基的博客</copyright>
         <lastBuildDate>Fri, 14 Mar 2025 21:58:59 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/hugo+stack/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>搭建个人网站——Hugo&#43;Stack主题轻松搭建</title>
-        <link>http://localhost:1313/post/git/</link>
+        <link>http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/</link>
         <pubDate>Fri, 14 Mar 2025 21:58:59 +0800</pubDate>
         
-        <guid>http://localhost:1313/post/git/</guid>
-        <description>&lt;img src="http://localhost:1313/post/git/images/image-6.png" alt="Featured image of post 搭建个人网站——Hugo&#43;Stack主题轻松搭建" /&gt;&lt;h2 id=&#34;1-安装hugo&#34;&gt;1. 安装Hugo
+        <guid>http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/</guid>
+        <description>&lt;img src="http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image-6.png" alt="Featured image of post 搭建个人网站——Hugo&#43;Stack主题轻松搭建" /&gt;&lt;h2 id=&#34;1-安装hugo&#34;&gt;1. 安装Hugo
 &lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;使用Chocolatey搭建&lt;/strong&gt;&lt;/p&gt;
@@ -43,10 +43,10 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/git/images/image-6.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image-6.png&#34;
 	width=&#34;979&#34;
 	height=&#34;512&#34;
-	srcset=&#34;http://localhost:1313/post/git/images/image-6_hu_ce614a29a58e70cb.png 480w, http://localhost:1313/post/git/images/image-6_hu_3ddb428cb3562614.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image-6_hu_ce614a29a58e70cb.png 480w, http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image-6_hu_3ddb428cb3562614.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -64,10 +64,10 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;choco&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;hugo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;extended&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;confirm&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#安装Hugo 扩展版（必需）​&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/git/images/image-5.png&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image-5.png&#34;
 	width=&#34;979&#34;
 	height=&#34;512&#34;
-	srcset=&#34;http://localhost:1313/post/git/images/image-5_hu_4db03d34b32e5d6f.png 480w, http://localhost:1313/post/git/images/image-5_hu_d7c1cea0c5cbd66a.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image-5_hu_4db03d34b32e5d6f.png 480w, http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image-5_hu_d7c1cea0c5cbd66a.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -129,10 +129,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git submodule add https://github.com/adityatelange/hugo-PaperMod themes/PaperMod
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/git/images/image-4.png&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image-4.png&#34;
 	width=&#34;962&#34;
 	height=&#34;902&#34;
-	srcset=&#34;http://localhost:1313/post/git/images/image-4_hu_9f629472c78da577.png 480w, http://localhost:1313/post/git/images/image-4_hu_56c631090472f295.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image-4_hu_9f629472c78da577.png 480w, http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image-4_hu_56c631090472f295.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -209,10 +209,10 @@
 &lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;如果成功，浏览器访问 &lt;code&gt;http://localhost:1313&lt;/code&gt; 会显示基于 PaperMod 主题的博客。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/git/images/image-3.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image-3.png&#34;
 	width=&#34;973&#34;
 	height=&#34;477&#34;
-	srcset=&#34;http://localhost:1313/post/git/images/image-3_hu_5f72dfc2fdbe0202.png 480w, http://localhost:1313/post/git/images/image-3_hu_9dddab56dfcc523c.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image-3_hu_5f72dfc2fdbe0202.png 480w, http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image-3_hu_9dddab56dfcc523c.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -244,10 +244,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push -u origin main
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/git/images/image-2.png&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image-2.png&#34;
 	width=&#34;929&#34;
 	height=&#34;566&#34;
-	srcset=&#34;http://localhost:1313/post/git/images/image-2_hu_328c7b4e431fa553.png 480w, http://localhost:1313/post/git/images/image-2_hu_1433a380d56851ab.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image-2_hu_328c7b4e431fa553.png 480w, http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image-2_hu_1433a380d56851ab.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -258,10 +258,10 @@
 &gt;&lt;/p&gt;
 &lt;p&gt;我搭建的Demo &lt;a class=&#34;link&#34; href=&#34;https://panwangvie.github.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://panwangvie.github.io/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/git/images/image-1.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image-1.png&#34;
 	width=&#34;927&#34;
 	height=&#34;342&#34;
-	srcset=&#34;http://localhost:1313/post/git/images/image-1_hu_6d4d4b2630987b27.png 480w, http://localhost:1313/post/git/images/image-1_hu_f36f50213b0005d0.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image-1_hu_6d4d4b2630987b27.png 480w, http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image-1_hu_f36f50213b0005d0.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -340,10 +340,10 @@
 &lt;/div&gt;&lt;p&gt;另外 &lt;code&gt;emoji&lt;/code&gt; 官方提供了许多预设，可以查看&lt;a class=&#34;link&#34; href=&#34;https://waline.js.org/guide/features/emoji.html#%E9%A2%84%E8%AE%BE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;预设列表&lt;/a&gt;自行选择。&lt;/p&gt;
 &lt;p&gt;但是官方提供的预设使用的 &lt;code&gt;unpkg&lt;/code&gt; 经常会被墙而导致无法正常访问，这里推荐替换为饿了么提供的国内镜像（将 &lt;code&gt;unpkg.com&lt;/code&gt; 替换为 &lt;code&gt;npm.elemecdn.com&lt;/code&gt;）&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/git/images/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image.png&#34;
 	width=&#34;806&#34;
 	height=&#34;464&#34;
-	srcset=&#34;http://localhost:1313/post/git/images/image_hu_3a8b50dfd1200b42.png 480w, http://localhost:1313/post/git/images/image_hu_e8852ead5405c9a6.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image_hu_3a8b50dfd1200b42.png 480w, http://localhost:1313/post/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99hugo&amp;#43;stack%E4%B8%BB%E9%A2%98%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BA/images/image_hu_e8852ead5405c9a6.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	

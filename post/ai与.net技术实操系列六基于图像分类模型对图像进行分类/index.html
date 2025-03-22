@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="## 引言人工智能（AI）技术的迅猛发展推动了各行各业的数字化转型。图像分类，作为计算机视觉领域的核心技术之一，能够让机器自动识别图像中的物体、场景或特征，已广泛应用于医疗诊断、安防监控、自动驾驶和电子商务等领域。与此同时，.NET 平台凭借其高效性、跨平台能力和强大的 C# 编程语言支持，成为开发者构建企业级应用的首选技术栈。将 AI 图像分类模型与 .NET 技术结合，不仅能充分发挥两者的优势，还能为开发者提供一种高效、直观的实现方式。">
+<title>AI与.NET技术实操系列（六）：基于图像分类模型对图像进行分类</title>
+
+<link rel='canonical' href='http://localhost:1313/post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E5%85%AD%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E5%AF%B9%E5%9B%BE%E5%83%8F%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB/'>
+
+<link rel="stylesheet" href="/scss/style.min.2dd4fbc9eaf62de3be149719e1aae45e19006949dc7111894a252b84a7a57601.css"><meta property='og:title' content="AI与.NET技术实操系列（六）：基于图像分类模型对图像进行分类">
+<meta property='og:description' content="## 引言人工智能（AI）技术的迅猛发展推动了各行各业的数字化转型。图像分类，作为计算机视觉领域的核心技术之一，能够让机器自动识别图像中的物体、场景或特征，已广泛应用于医疗诊断、安防监控、自动驾驶和电子商务等领域。与此同时，.NET 平台凭借其高效性、跨平台能力和强大的 C# 编程语言支持，成为开发者构建企业级应用的首选技术栈。将 AI 图像分类模型与 .NET 技术结合，不仅能充分发挥两者的优势，还能为开发者提供一种高效、直观的实现方式。">
+<meta property='og:url' content='http://localhost:1313/post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E5%85%AD%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E5%AF%B9%E5%9B%BE%E5%83%8F%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB/'>
+<meta property='og:site_name' content='潘旺基の博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='标签' /><meta property='article:published_time' content='2025-03-21T23:18:58&#43;08:00'/><meta property='article:modified_time' content='2025-03-21T23:18:58&#43;08:00'/><meta property='og:image' content='http://localhost:1313/img/avatar.jpg' />
+<meta name="twitter:title" content="AI与.NET技术实操系列（六）：基于图像分类模型对图像进行分类">
+<meta name="twitter:description" content="## 引言人工智能（AI）技术的迅猛发展推动了各行各业的数字化转型。图像分类，作为计算机视觉领域的核心技术之一，能够让机器自动识别图像中的物体、场景或特征，已广泛应用于医疗诊断、安防监控、自动驾驶和电子商务等领域。与此同时，.NET 平台凭借其高效性、跨平台能力和强大的 C# 编程语言支持，成为开发者构建企业级应用的首选技术栈。将 AI 图像分类模型与 .NET 技术结合，不仅能充分发挥两者的优势，还能为开发者提供一种高效、直观的实现方式。"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/img/avatar.jpg' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_6497b96e6ca78632.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">潘旺基の博客</a></h1>
+            <h2 class="site-description">一个小小的程序员记录博客</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://blog.csdn.net/PWJvie'
+                        target="_blank"
+                        title="CSDN"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1741450245810" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11504" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M512 1024C229.2224 1024 0 794.7776 0 512 0 229.2224 229.2224 0 512 0c282.7776 0 512 229.2224 512 512 0 282.7776-229.2224 512-512 512z m17.066667-413.525333c34.850133 4.352 68.778667 5.12 102.741333 2.0992 23.04-2.048 44.817067-8.362667 64.170667-21.9136 38.212267-26.794667 49.783467-85.1968 24.251733-123.050667-14.626133-21.7088-36.8128-30.344533-60.757333-35.498667-35.054933-7.543467-70.4512-5.751467-105.847467-3.413333-5.666133 0.3584-6.7584 3.072-7.236267 8.209067-3.072 32.682667-6.536533 65.314133-9.813333 97.962666-2.5088 24.814933-4.932267 49.629867-7.509333 75.605334z m53.4016-33.928534c1.962667-20.906667 3.6352-39.338667 5.4272-57.770666 1.553067-15.906133 3.413333-31.778133 4.727466-47.701334 0.3584-4.283733 1.553067-6.656 5.956267-6.382933 15.616 1.041067 31.709867 0.034133 46.728533 3.652267 36.488533 8.823467 48.725333 54.306133 23.3472 83.029333-15.8208 17.902933-36.7616 23.586133-59.255466 25.088-8.465067 0.546133-17.015467 0.085333-26.9312 0.085333zM512 434.295467c-2.184533-0.648533-3.5328-1.1776-4.932267-1.4336-37.717333-6.877867-75.690667-8.328533-113.646933-2.816-20.974933 3.037867-41.0112 9.489067-57.480533 23.330133-22.9888 19.319467-21.640533 46.848 4.4032 62.0032 13.056 7.594667 28.023467 12.509867 42.5984 17.288533 14.08 4.608 28.996267 6.826667 43.144533 11.264 12.5952 3.925333 14.011733 14.318933 3.584 22.306134-3.345067 2.56-7.441067 5.085867-11.537067 5.751466-11.195733 1.826133-22.698667 4.386133-33.826133 3.566934-24.098133-1.774933-48.042667-5.461333-72.5504-8.430934-1.365333 10.615467-2.935467 23.0912-4.5568 35.9424 4.181333 1.365333 7.68 2.730667 11.264 3.618134 33.9456 8.4992 68.386133 9.608533 102.912 5.12 20.087467-2.6112 39.4752-7.901867 56.695467-19.029334 28.603733-18.4832 36.693333-57.1904-4.676267-75.383466-14.506667-6.382933-30.190933-10.410667-45.482667-15.086934-11.4176-3.4816-23.313067-5.614933-34.525866-9.5232-9.7792-3.413333-11.144533-12.202667-3.037867-18.397866 4.6592-3.549867 10.717867-6.997333 16.384-7.3728a480.853333 480.853333 0 0 1 53.384533-0.853334c15.377067 0.699733 30.651733 3.549867 46.4896 5.5296L512 434.295467z m257.143467 2.048L750.933333 614.2976h54.152534c4.778667-45.636267 9.710933-90.7264 14.062933-135.8848 0.6144-6.365867 2.3552-8.840533 8.686933-9.0112 11.434667-0.273067 22.8864-1.979733 34.286934-1.570133 23.722667 0.853333 42.3936 9.728 38.4 43.264-2.901333 24.2688-5.597867 48.571733-8.2432 72.874666-1.092267 10.069333-1.826133 20.189867-2.730667 30.4128h55.330133c3.584-35.259733 7.9872-70.058667 10.496-104.994133 3.413333-47.4624-17.7664-73.3184-64.682666-80.213333-40.96-6.007467-81.339733-0.341333-121.5488 7.133866z m-483.498667 134.6048c-8.738133 1.297067-16.384 2.798933-24.098133 3.4816-25.6512 2.235733-51.319467 3.9424-76.305067-4.266667-13.909333-4.590933-24.6784-12.578133-29.7984-25.9584-7.901867-20.701867 0.887467-47.104 19.831467-60.3136 17.373867-12.117333 37.717333-15.9232 58.453333-15.9232 22.545067-0.017067 45.090133 2.423467 68.232533 3.84L307.2 432.298667c-15.069867-1.723733-29.4912-3.925333-43.997867-4.9152-41.0112-2.798933-80.64 2.6112-117.469866 20.462933-30.020267 14.557867-52.053333 36.010667-58.6752 68.130133-7.850667 38.144 11.537067 69.495467 51.7632 85.845334 19.1488 7.765333 39.287467 12.509867 60.0064 12.5952 24.746667 0.1024 49.493333-1.570133 74.205866-2.952534 3.106133-0.170667 8.311467-2.901333 8.669867-5.034666 1.979733-11.554133 2.730667-23.278933 3.9424-35.464534z" fill="#707070" p-id="11505"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/panwangvie'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/panwangvie'
+                        target="_blank"
+                        title="博客园"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1741450131681" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10351" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M512 0C229.234 0 0 229.226 0 512c0 282.766 229.234 512 512 512s512-229.234 512-512C1024 229.226 794.766 0 512 0zM228.777 836.067c-63.164 0-114.372-51.208-114.372-114.372s51.208-114.371 114.372-114.371 114.371 51.208 114.371 114.371c0 63.172-51.208 114.372-114.371 114.372z m420.556-89.613a391.867 391.867 0 0 1-1.99 16.975c-7.26 30.204-33.95 52.899-66.377 52.899-38.104 0-68.991-34.159-68.991-72.205 0-5.877 0.816-11.463 2.206-16.775C512.425 596.251 410.2 489.48 280.976 480.464l-6.344-0.74-1.016-0.042c-5.453-0.217-10.93-0.733-16.142-2.331a67.959 67.959 0 0 1-47.92-65.079c0-37.605 30.245-68.091 67.55-68.091 0.3 0 0.591 0.041 0.891 0.05l0.125-0.05c205.708 2.14 371.837 169.484 371.837 375.7 0 7.717-0.341 15.343-0.824 22.944 0.066 1.207 0.191 2.397 0.2 3.63z m254.085-63.33c-10.856 45.173-25.808 104.116-74.311 104.116-56.994 0-48.236-66.086-48.236-122.997 0-8.791 1.224-17.15 3.297-25.1-2.64-196.109-169.835-387.813-363.137-401.292l-35.807-5.828c-42.117-7.492-111.716-3.255-111.716-49.193 0-56.254 50.234-81.862 106.038-81.862 0.45 0 0.882 0.058 1.332 0.067l0.183-0.067c307.725 3.18 526.253 208.546 526.253 517.028a538.474 538.474 0 0 1-1.232 34.317c0.108 1.807 0.291 3.596 0.308 5.428a542.72 542.72 0 0 1-2.972 25.384z" fill="#5B5C5C" p-id="10352"></path></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#引言">引言</a></li>
+    <li><a href="#准备工作">准备工作</a>
+      <ol>
+        <li><a href="#安装步骤">安装步骤</a></li>
+      </ol>
+    </li>
+    <li><a href="#图像分类模型的选择">图像分类模型的选择</a>
+      <ol>
+        <li><a href="#模型训练与导出">模型训练与导出</a></li>
+      </ol>
+    </li>
+    <li><a href="#在-net-中调用模型">在 .NET 中调用模型</a>
+      <ol>
+        <li><a href="#1-创建-net-项目">1. 创建 .NET 项目</a></li>
+        <li><a href="#2-定义输入和输出数据结构">2. 定义输入和输出数据结构</a></li>
+        <li><a href="#3-定义-estimator-管道">3. 定义 estimator 管道</a></li>
+        <li><a href="#4-提取预测结果">4. 提取预测结果</a></li>
+      </ol>
+    </li>
+    <li><a href="#调用模型进行图像分类">调用模型进行图像分类</a>
+      <ol>
+        <li><a href="#1-准备素材与分类文件">1. 准备素材与分类文件</a></li>
+        <li><a href="#2-加载模型">2. 加载模型</a></li>
+        <li><a href="#3-解析输出结果">3. 解析输出结果</a></li>
+      </ol>
+    </li>
+    <li><a href="#其他实现方式">其他实现方式</a></li>
+    <li><a href="#实际应用场景">实际应用场景</a>
+      <ol>
+        <li><a href="#挑战与解决方案">挑战与解决方案</a></li>
+      </ol>
+    </li>
+    <li><a href="#结论">结论</a></li>
+    <li><a href="#参考资料">参考资料</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E5%85%AD%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E5%AF%B9%E5%9B%BE%E5%83%8F%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB/">
+                
+                    <img src="/img/avatar.jpg" loading="lazy" alt="Featured image of post AI与.NET技术实操系列（六）：基于图像分类模型对图像进行分类" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%88%86%E7%B1%BB/" >
+                分类
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E5%85%AD%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E5%AF%B9%E5%9B%BE%E5%83%8F%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB/">AI与.NET技术实操系列（六）：基于图像分类模型对图像进行分类</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            ## 引言人工智能（AI）技术的迅猛发展推动了各行各业的数字化转型。图像分类，作为计算机视觉领域的核心技术之一，能够让机器自动识别图像中的物体、场景或特征，已广泛应用于医疗诊断、安防监控、自动驾驶和电子商务等领域。与此同时，.NET 平台凭借其高效性、跨平台能力和强大的 C# 编程语言支持，成为开发者构建企业级应用的首选技术栈。将 AI 图像分类模型与 .NET 技术结合，不仅能充分发挥两者的优势，还能为开发者提供一种高效、直观的实现方式。
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-03-21</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 7 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="引言">引言
+</h2><p>人工智能（AI）技术的迅猛发展推动了各行各业的数字化转型。图像分类，作为计算机视觉领域的核心技术之一，能够让机器自动识别图像中的物体、场景或特征，已广泛应用于医疗诊断、安防监控、自动驾驶和电子商务等领域。</p>
+<p>与此同时，.NET 平台凭借其高效性、跨平台能力和强大的 C# 编程语言支持，成为开发者构建企业级应用的首选技术栈。将 AI 图像分类模型与 .NET 技术结合，不仅能充分发挥两者的优势，还能为开发者提供一种高效、直观的实现方式。</p>
+<p>本文将详细介绍如何在 .NET 环境下使用 C# 部署和调用 AI 图像分类模型。我们将从环境搭建、模型选择，到模型调用，再到实际应用场景，逐步展开讲解，并提供丰富的代码示例和实践指导，帮助开发者快速上手并应用到实际项目中。</p>
+<hr>
+<h2 id="准备工作">准备工作
+</h2><p>在开始实现图像分类之前，我们需要准备必要的开发环境和工具。以下是所需的软件和库：</p>
+<ul>
+<li><strong>Visual Studio</strong>：Visual Studio 2022。</li>
+<li><strong>.NET SDK</strong>：安装 .NET 6.0 或更高版本，确保支持最新的功能和性能优化。</li>
+<li><strong>ML.NET</strong>：微软提供的开源机器学习框架，专为 .NET 开发者设计，支持模型训练和推理。</li>
+<li><strong>模型文件</strong>：我们将使用预训练的图像分类模型 tensorflow_inception_graph.pb。</li>
+</ul>
+<h3 id="安装步骤">安装步骤
+</h3><p><strong>创建项目并添加依赖</strong>：在命令行中运行以下命令，创建一个控制台应用程序并安装必要的 NuGet 包：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">dotnet new console -n ImageClassificationDemocd ImageClassificationDemodotnet add package Microsoft.MLdotnet add package Microsoft.ML.ImageAnalyticsdotnet add package Microsoft.ML.TensorFlowdotnet add package SciSharp.TensorFlow.Redist
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>完成以上步骤后，你的环境就准备好了。接下来，我们将选择一个合适的图像分类模型。</p>
+<hr>
+<h2 id="图像分类模型的选择">图像分类模型的选择
+</h2><p>图像分类模型是基于监督学习的神经网络，其目标是将输入图像分配到预定义的类别中。在选择模型时，我们需要考虑模型的性能、计算复杂度和适用场景。以下是几种常见的图像分类模型：</p>
+<ul>
+<li><strong>卷积神经网络（CNN）</strong>：如 LeNet、AlexNet 和 VGGNet，适合基本的图像分类任务，但层数较深时可能面临梯度消失问题。</li>
+<li><strong>残差网络（ResNet）</strong>：通过引入残差连接（skip connections），解决了深层网络的训练难题，适用于高精度分类任务。</li>
+<li><strong>EfficientNet</strong>：通过平衡网络深度、宽度和分辨率，提供高效的性能，适合资源受限的场景。</li>
+</ul>
+<hr>
+<h3 id="模型训练与导出">模型训练与导出
+</h3><p>考虑到时间和资源成本，我们将直接使用预训练的 <strong>tensorflow_inception_graph.pb</strong> 模型。如果你有自定义需求，可以使用以下步骤训练并导出模型：</p>
+<ol>
+<li><strong>数据准备</strong>：收集并标注图像数据集，分为训练集和验证集。</li>
+<li><strong>训练模型</strong>：使用 TensorFlow 或 PyTorch 等框架训练模型。</li>
+<li><strong>导出模型</strong>：利用框架提供的导出工具导出模型。</li>
+</ol>
+<p>在本文中，我们选择 <strong>tensorflow_inception_graph.pb</strong> 作为示例模型，这是一种由Google开发的高性能卷积神经网络（CNN）架构。</p>
+<blockquote>
+<p>❝</p>
+<p>该模块通过并行使用不同大小的卷积核（如1x1、3x3、5x5）和池化层，提取图像的多尺度特征。这种设计提高了模型在图像分类任务中的表现，同时保持了计算效率。支持 1000 个类别的分类，且可以轻松集成到 .NET 中。</p></blockquote>
+<p>大家可以直接点击 <a class="link" href="https://storage.googleapis.com/download.tensorflow.org/models/inception5h.zip"  target="_blank" rel="noopener"
+    >tensorflow_inception_graph.pb</a> 下载（文章最后也有下载方式）预训练的模型文件和分类文件，并将其放入项目目录中。</p>
+<p>也可以到<a class="link" href="https://github.com/martinwicke/tensorflow-tutorial/blob/master/tensorflow_inception_graph.pb"  target="_blank" rel="noopener"
+    >github</a>上下载（文章最后也有下载方式），里面的内容相对来说也更丰富些。</p>
+<p><img src="/post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E5%85%AD%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E5%AF%B9%E5%9B%BE%E5%83%8F%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB/images/aade711f-6e0a-4752-9a81-7a9740b59eeb.png"
+	width="1476"
+	height="760"
+	srcset="/post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E5%85%AD%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E5%AF%B9%E5%9B%BE%E5%83%8F%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB/images/aade711f-6e0a-4752-9a81-7a9740b59eeb_hu_eea9652c337211f8.png 480w, /post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E5%85%AD%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E5%AF%B9%E5%9B%BE%E5%83%8F%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB/images/aade711f-6e0a-4752-9a81-7a9740b59eeb_hu_312c83f0b023635.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="194"
+		data-flex-basis="466px"
+	
+></p>
+<hr>
+<h2 id="在-net-中调用模型">在 .NET 中调用模型
+</h2><p>现在，我们进入核心部分：在 .NET 中调用 tensorflow_inception_graph.pb。以下是逐步实现的过程。</p>
+<h3 id="1-创建-net-项目">1. 创建 .NET 项目
+</h3><p>使用命令行创建一个控制台应用，项目基本结构如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ImageClassificationDemo/├── ImageClassificationDemo.csproj├── Program.cs├── assets/inputs/inception/tensorflow_inception_graph.pb├── assets/inputs/inception/imagenet_comp_graph_label_strings.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2-定义输入和输出数据结构">2. 定义输入和输出数据结构
+</h3><p>如果在运行的时候报错说找不到模型或者label文件，可以进行如下操作：</p>
+<p><img src="/post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E5%85%AD%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E5%AF%B9%E5%9B%BE%E5%83%8F%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB/images/f01bfb24-2b46-4e58-adf4-ce2f1816844a.png"
+	width="443"
+	height="172"
+	srcset="/post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E5%85%AD%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E5%AF%B9%E5%9B%BE%E5%83%8F%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB/images/f01bfb24-2b46-4e58-adf4-ce2f1816844a_hu_850341e17e2e31c3.png 480w, /post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E5%85%AD%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E5%AF%B9%E5%9B%BE%E5%83%8F%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB/images/f01bfb24-2b46-4e58-adf4-ce2f1816844a_hu_4f79bc0c459e86e5.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="257"
+		data-flex-basis="618px"
+	
+></p>
+<p>输入类中定义数据的结构如下，后续会使用 <strong>TextLoader</strong> 加载数据时引用该类型。此处的类名为 <strong>ImageNetData</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    public class ImageNetData    {        [LoadColumn(0)]        public string ImagePath;        [LoadColumn(1)]        public string Label;        public static IEnumerable&lt;ImageNetData&gt; ReadFromCsv(string file, string folder)        {            return File.ReadAllLines(file)             .Select(x =&gt; x.Split(&#39;\t&#39;))             .Select(x =&gt; new ImageNetData { ImagePath = Path.Combine(folder, x[0]), Label = x[1] } );        }    }    public class ImageNetDataProbability : ImageNetData    {        public string PredictedLabel;        public float Probability { get; set; }    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>❝</p>
+<p>需要强调的是，<strong>ImageNetData</strong> 类中的标签在使用 TensorFlow 模型进行评分时并没有真正使用。而是在测试预测时使用它，这样就可以将每个样本数据的实际标签与 TensorFlow 模型提供的预测标签进行比较。</p></blockquote>
+<p>输出类的结构如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public class ImageNetPrediction{    [ColumnName(TFModelScorer.InceptionSettings.outputTensorName)]    public float[] PredictedLabels;}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Inception 模型还需要几个传入的默认参数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">public</span> <span class="n">struct</span> <span class="n">ImageNetSettings</span><span class="p">{</span>    <span class="n">public</span> <span class="k">const</span> <span class="ne">int</span> <span class="n">imageHeight</span> <span class="o">=</span> <span class="mi">224</span><span class="p">;</span>    <span class="n">public</span> <span class="k">const</span> <span class="ne">int</span> <span class="n">imageWidth</span> <span class="o">=</span> <span class="mi">224</span><span class="p">;</span>    <span class="n">public</span> <span class="k">const</span> <span class="ne">float</span> <span class="n">mean</span> <span class="o">=</span> <span class="mi">117</span><span class="p">;</span>    <span class="n">public</span> <span class="k">const</span> <span class="ne">bool</span> <span class="n">channelsLast</span> <span class="o">=</span> <span class="bp">true</span><span class="p">;}</span>      
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3-定义-estimator-管道">3. 定义 estimator 管道
+</h3><blockquote>
+<p>❝</p>
+<p>在处理深度神经网络时，必须使图像适应网络期望的格式。这就是图像被调整大小然后转换的原因（主要是像素值在所有R，G，B通道上被归一化）。</p></blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">var</span> <span class="n">pipeline</span> <span class="o">=</span> <span class="n">mlContext</span><span class="o">.</span><span class="n">Transforms</span><span class="o">.</span><span class="n">LoadImages</span><span class="p">(</span><span class="n">outputColumnName</span><span class="p">:</span> <span class="s2">&#34;input&#34;</span><span class="p">,</span> <span class="n">imageFolder</span><span class="p">:</span> <span class="n">imagesFolder</span><span class="p">,</span> <span class="n">inputColumnName</span><span class="p">:</span> <span class="n">nameof</span><span class="p">(</span><span class="n">ImageNetData</span><span class="o">.</span><span class="n">ImagePath</span><span class="p">))</span>    <span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="n">mlContext</span><span class="o">.</span><span class="n">Transforms</span><span class="o">.</span><span class="n">ResizeImages</span><span class="p">(</span><span class="n">outputColumnName</span><span class="p">:</span> <span class="s2">&#34;input&#34;</span><span class="p">,</span> <span class="n">imageWidth</span><span class="p">:</span> <span class="n">ImageNetSettings</span><span class="o">.</span><span class="n">imageWidth</span><span class="p">,</span> <span class="n">imageHeight</span><span class="p">:</span> <span class="n">ImageNetSettings</span><span class="o">.</span><span class="n">imageHeight</span><span class="p">,</span> <span class="n">inputColumnName</span><span class="p">:</span> <span class="s2">&#34;input&#34;</span><span class="p">))</span>    <span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="n">mlContext</span><span class="o">.</span><span class="n">Transforms</span><span class="o">.</span><span class="n">ExtractPixels</span><span class="p">(</span><span class="n">outputColumnName</span><span class="p">:</span> <span class="s2">&#34;input&#34;</span><span class="p">,</span> <span class="n">interleavePixelColors</span><span class="p">:</span> <span class="n">ImageNetSettings</span><span class="o">.</span><span class="n">channelsLast</span><span class="p">,</span> <span class="n">offsetImage</span><span class="p">:</span> <span class="n">ImageNetSettings</span><span class="o">.</span><span class="n">mean</span><span class="p">))</span>    <span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="n">mlContext</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">LoadTensorFlowModel</span><span class="p">(</span><span class="n">modelLocation</span><span class="p">)</span>        <span class="o">.</span><span class="n">ScoreTensorFlowModel</span><span class="p">(</span><span class="n">outputColumnNames</span><span class="p">:</span> <span class="n">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s2">&#34;softmax2&#34;</span> <span class="p">},</span> <span class="n">inputColumnNames</span><span class="p">:</span> <span class="n">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s2">&#34;input&#34;</span> <span class="p">},</span>            <span class="n">addBatchDimensionInput</span><span class="p">:</span><span class="bp">true</span><span class="p">));</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行代码后，模型将被成功加载到内存中，接下来我们可以调用它进行图像分类。</p>
+<blockquote>
+<p>❝</p>
+<p>通常情况下，这里经常报的错就是输入/输出节点的名称不正确，你可以通过 Netron (<a class="link" href="https://netron.app/"  target="_blank" rel="noopener"
+    >https://netron.app/</a>)工具查看输入/输出节点的名称。</p>
+<p>因为这两个节点的名称后面会在 estimator 的定义中使用：在 inception 网络的情况下，输入张量命名为 &lsquo;input&rsquo;，输出命名为 &lsquo;softmax2&rsquo;。</p></blockquote>
+<p>下图是通过 <strong>Netron</strong> 读取的 <strong>tensorflow_inception_graph.pb</strong> 模型分析图：</p>
+<p><img src="/post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E5%85%AD%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E5%AF%B9%E5%9B%BE%E5%83%8F%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB/images/0819caf8-2df3-493c-9c46-1333c0526707.png"
+	width="1824"
+	height="762"
+	srcset="/post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E5%85%AD%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E5%AF%B9%E5%9B%BE%E5%83%8F%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB/images/0819caf8-2df3-493c-9c46-1333c0526707_hu_60a9958a87910330.png 480w, /post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E5%85%AD%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E5%AF%B9%E5%9B%BE%E5%83%8F%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB/images/0819caf8-2df3-493c-9c46-1333c0526707_hu_c06270086cee56cd.png 1024w"
+	loading="lazy"
+	
+		alt="输入张量名"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="239"
+		data-flex-basis="574px"
+	
+>输入张量名
+<img src="/post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E5%85%AD%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E5%AF%B9%E5%9B%BE%E5%83%8F%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB/images/80ccc9a1-0b6c-41d5-ae48-3ef6cd0f7dc6.png"
+	width="1862"
+	height="866"
+	srcset="/post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E5%85%AD%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E5%AF%B9%E5%9B%BE%E5%83%8F%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB/images/80ccc9a1-0b6c-41d5-ae48-3ef6cd0f7dc6_hu_5109ead618875c09.png 480w, /post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E5%85%AD%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E5%AF%B9%E5%9B%BE%E5%83%8F%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB/images/80ccc9a1-0b6c-41d5-ae48-3ef6cd0f7dc6_hu_d2c4edcfda98871a.png 1024w"
+	loading="lazy"
+	
+		alt="输出张量名"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="215"
+		data-flex-basis="516px"
+	
+>输出张量名</p>
+<h3 id="4-提取预测结果">4. 提取预测结果
+</h3><p>填充 <strong>estimator</strong> 管道</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">ITransformer</span> <span class="n">model</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">Fit</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="k">var</span> <span class="n">predictionEngine</span> <span class="o">=</span> <span class="n">mlContext</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">CreatePredictionEngine</span><span class="o">&lt;</span><span class="n">ImageNetData</span><span class="p">,</span> <span class="n">ImageNetPrediction</span><span class="o">&gt;</span><span class="p">(</span><span class="n">model</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当获得预测结果后，我们会在属性中得到一个浮点数数组。数组中的每个位置都会分配到一个标签。</p>
+<p>例如，如果模型有5个不同的标签，则数组将为length = 5。数组中的每个位置都表示标签在该位置的概率；所有数组值（概率）的和等于1。</p>
+<p>然后，您需要选择最大的值（概率），并检查配给了该位置的那个以填充 estimator 管道标签。</p>
+<hr>
+<h2 id="调用模型进行图像分类">调用模型进行图像分类
+</h2><p>接下来我们需要编写代码来加载图像、进行预测并解析结果。</p>
+<h3 id="1-准备素材与分类文件">1. 准备素材与分类文件
+</h3><p>定义图像文件夹目录和图像分类目录。以下代码加载并预处理图像：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">string assetsRelativePath = @&#34;../../../assets&#34;;string assetsPath = GetAbsolutePath(assetsRelativePath);string tagsTsv = Path.Combine(assetsPath, &#34;inputs&#34;, &#34;images&#34;, &#34;tags.tsv&#34;);string imagesFolder = Path.Combine(assetsPath, &#34;inputs&#34;, &#34;images&#34;);string inceptionPb = Path.Combine(assetsPath, &#34;inputs&#34;, &#34;inception&#34;, &#34;tensorflow_inception_graph.pb&#34;);string labelsTxt = Path.Combine(assetsPath, &#34;inputs&#34;, &#34;inception&#34;, &#34;imagenet_comp_graph_label_strings.txt&#34;);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2-加载模型">2. 加载模型
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">private</span> <span class="n">PredictionEngine</span><span class="o">&lt;</span><span class="n">ImageNetData</span><span class="p">,</span> <span class="n">ImageNetPrediction</span><span class="o">&gt;</span> <span class="n">LoadModel</span><span class="p">(</span><span class="n">string</span> <span class="n">dataLocation</span><span class="p">,</span> <span class="n">string</span> <span class="n">imagesFolder</span><span class="p">,</span> <span class="n">string</span> <span class="n">modelLocation</span><span class="p">){</span>    <span class="n">ConsoleWriteHeader</span><span class="p">(</span><span class="s2">&#34;Read model&#34;</span><span class="p">);</span>    <span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="o">$</span><span class="s2">&#34;Model location: {modelLocation}&#34;</span><span class="p">);</span>    <span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="o">$</span><span class="s2">&#34;Images folder: {imagesFolder}&#34;</span><span class="p">);</span>    <span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="o">$</span><span class="s2">&#34;Training file: {dataLocation}&#34;</span><span class="p">);</span>    <span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="o">$</span><span class="s2">&#34;Default parameters: image size=({ImageNetSettings.imageWidth},{ImageNetSettings.imageHeight}), image mean: {ImageNetSettings.mean}&#34;</span><span class="p">);</span>    <span class="k">var</span> <span class="n">data</span> <span class="o">=</span> <span class="n">mlContext</span><span class="o">.</span><span class="n">Data</span><span class="o">.</span><span class="n">LoadFromTextFile</span><span class="o">&lt;</span><span class="n">ImageNetData</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dataLocation</span><span class="p">,</span> <span class="n">hasHeader</span><span class="p">:</span> <span class="bp">true</span><span class="p">);</span>    <span class="k">var</span> <span class="n">pipeline</span> <span class="o">=</span> <span class="n">mlContext</span><span class="o">.</span><span class="n">Transforms</span><span class="o">.</span><span class="n">LoadImages</span><span class="p">(</span><span class="n">outputColumnName</span><span class="p">:</span> <span class="s2">&#34;input&#34;</span><span class="p">,</span> <span class="n">imageFolder</span><span class="p">:</span> <span class="n">imagesFolder</span><span class="p">,</span> <span class="n">inputColumnName</span><span class="p">:</span> <span class="n">nameof</span><span class="p">(</span><span class="n">ImageNetData</span><span class="o">.</span><span class="n">ImagePath</span><span class="p">))</span>                    <span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="n">mlContext</span><span class="o">.</span><span class="n">Transforms</span><span class="o">.</span><span class="n">ResizeImages</span><span class="p">(</span><span class="n">outputColumnName</span><span class="p">:</span> <span class="s2">&#34;input&#34;</span><span class="p">,</span> <span class="n">imageWidth</span><span class="p">:</span> <span class="n">ImageNetSettings</span><span class="o">.</span><span class="n">imageWidth</span><span class="p">,</span> <span class="n">imageHeight</span><span class="p">:</span> <span class="n">ImageNetSettings</span><span class="o">.</span><span class="n">imageHeight</span><span class="p">,</span> <span class="n">inputColumnName</span><span class="p">:</span> <span class="s2">&#34;input&#34;</span><span class="p">))</span>                    <span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="n">mlContext</span><span class="o">.</span><span class="n">Transforms</span><span class="o">.</span><span class="n">ExtractPixels</span><span class="p">(</span><span class="n">outputColumnName</span><span class="p">:</span> <span class="s2">&#34;input&#34;</span><span class="p">,</span> <span class="n">interleavePixelColors</span><span class="p">:</span> <span class="n">ImageNetSettings</span><span class="o">.</span><span class="n">channelsLast</span><span class="p">,</span> <span class="n">offsetImage</span><span class="p">:</span> <span class="n">ImageNetSettings</span><span class="o">.</span><span class="n">mean</span><span class="p">))</span>                    <span class="o">.</span><span class="n">Append</span><span class="p">(</span><span class="n">mlContext</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">LoadTensorFlowModel</span><span class="p">(</span><span class="n">modelLocation</span><span class="p">)</span><span class="o">.</span>                    <span class="n">ScoreTensorFlowModel</span><span class="p">(</span><span class="n">outputColumnNames</span><span class="p">:</span> <span class="n">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s2">&#34;softmax2&#34;</span> <span class="p">},</span>                                        <span class="n">inputColumnNames</span><span class="p">:</span> <span class="n">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s2">&#34;input&#34;</span> <span class="p">},</span> <span class="n">addBatchDimensionInput</span><span class="p">:</span><span class="bp">true</span><span class="p">));</span>                    <span class="n">ITransformer</span> <span class="n">model</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">Fit</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>    <span class="k">var</span> <span class="n">predictionEngine</span> <span class="o">=</span> <span class="n">mlContext</span><span class="o">.</span><span class="n">Model</span><span class="o">.</span><span class="n">CreatePredictionEngine</span><span class="o">&lt;</span><span class="n">ImageNetData</span><span class="p">,</span> <span class="n">ImageNetPrediction</span><span class="o">&gt;</span><span class="p">(</span><span class="n">model</span><span class="p">);</span>    <span class="k">return</span> <span class="n">predictionEngine</span><span class="p">;}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3-解析输出结果">3. 解析输出结果
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">protected</span> <span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">ImageNetData</span><span class="o">&gt;</span> <span class="n">PredictDataUsingModel</span><span class="p">(</span><span class="n">string</span> <span class="n">testLocation</span><span class="p">,</span>                                                           <span class="n">string</span> <span class="n">imagesFolder</span><span class="p">,</span>                                                           <span class="n">string</span> <span class="n">labelsLocation</span><span class="p">,</span>                                                           <span class="n">PredictionEngine</span><span class="o">&lt;</span><span class="n">ImageNetData</span><span class="p">,</span> <span class="n">ImageNetPrediction</span><span class="o">&gt;</span> <span class="n">model</span><span class="p">){</span>    <span class="n">ConsoleWriteHeader</span><span class="p">(</span><span class="s2">&#34;Classify images&#34;</span><span class="p">);</span>    <span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="o">$</span><span class="s2">&#34;Images folder: {imagesFolder}&#34;</span><span class="p">);</span>    <span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="o">$</span><span class="s2">&#34;Training file: {testLocation}&#34;</span><span class="p">);</span>    <span class="n">Console</span><span class="o">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="o">$</span><span class="s2">&#34;Labels file: {labelsLocation}&#34;</span><span class="p">);</span>    <span class="k">var</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">ReadLabels</span><span class="p">(</span><span class="n">labelsLocation</span><span class="p">);</span>    <span class="k">var</span> <span class="n">testData</span> <span class="o">=</span> <span class="n">ImageNetData</span><span class="o">.</span><span class="n">ReadFromCsv</span><span class="p">(</span><span class="n">testLocation</span><span class="p">,</span> <span class="n">imagesFolder</span><span class="p">);</span>    <span class="n">foreach</span> <span class="p">(</span><span class="k">var</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">testData</span><span class="p">)</span>    <span class="p">{</span>        <span class="k">var</span> <span class="n">probs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">Predict</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span><span class="o">.</span><span class="n">PredictedLabels</span><span class="p">;</span>        <span class="k">var</span> <span class="n">imageData</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ImageNetDataProbability</span><span class="p">()</span>        <span class="p">{</span>            <span class="n">ImagePath</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">ImagePath</span><span class="p">,</span>            <span class="ne">Label</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">Label</span>        <span class="p">};</span>        <span class="p">(</span><span class="n">imageData</span><span class="o">.</span><span class="n">PredictedLabel</span><span class="p">,</span> <span class="n">imageData</span><span class="o">.</span><span class="n">Probability</span><span class="p">)</span> <span class="o">=</span> <span class="n">GetBestLabel</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">probs</span><span class="p">);</span>        <span class="n">imageData</span><span class="o">.</span><span class="n">ConsoleWrite</span><span class="p">();</span>        <span class="nb">yield</span> <span class="k">return</span> <span class="n">imageData</span><span class="p">;</span>    <span class="p">}}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在 <code>Main</code> 方法中调用，完整代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">static void Main(string[] args){    string assetsRelativePath = @&#34;../../../assets&#34;;    string assetsPath = GetAbsolutePath(assetsRelativePath);    string tagsTsv = Path.Combine(assetsPath, &#34;inputs&#34;, &#34;images&#34;, &#34;tags.tsv&#34;);    string imagesFolder = Path.Combine(assetsPath, &#34;inputs&#34;, &#34;images&#34;);    string inceptionPb = Path.Combine(assetsPath, &#34;inputs&#34;, &#34;inception&#34;, &#34;tensorflow_inception_graph.pb&#34;);    string labelsTxt = Path.Combine(assetsPath, &#34;inputs&#34;, &#34;inception&#34;, &#34;imagenet_comp_graph_label_strings.txt&#34;);    try    {        TFModelScorer modelScorer = new TFModelScorer(tagsTsv, imagesFolder, inceptionPb, labelsTxt);        modelScorer.Score();    }    catch (Exception ex)    {        ConsoleHelpers.ConsoleWriteException(ex.ToString());    }    ConsoleHelpers.ConsolePressAnyKey();}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行程序后，你将看到类似以下的输出：</p>
+<p><img src="/post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E5%85%AD%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E5%AF%B9%E5%9B%BE%E5%83%8F%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB/images/1fd8ceee-fcca-492b-8fe3-1b0dc0280aee.png"
+	width="723"
+	height="385"
+	srcset="/post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E5%85%AD%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E5%AF%B9%E5%9B%BE%E5%83%8F%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB/images/1fd8ceee-fcca-492b-8fe3-1b0dc0280aee_hu_2f54c8a0f10997f9.png 480w, /post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E5%85%AD%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E5%AF%B9%E5%9B%BE%E5%83%8F%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB/images/1fd8ceee-fcca-492b-8fe3-1b0dc0280aee_hu_3563f11d615418b6.png 1024w"
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="187"
+		data-flex-basis="450px"
+	
+></p>
+<hr>
+<h2 id="其他实现方式">其他实现方式
+</h2><p>在实际应用中，我们也可以使用ONNX模型，此处不做额外叙述。由于模型的性能和效率至关重要，只是提供一些优化建议：</p>
+<ol>
+<li><strong>模型量化</strong>：使用 ONNX Runtime 的量化工具，将模型从浮点数（FP32）转换为整数（INT8），减少模型大小和推理时间。</li>
+<li><strong>硬件加速</strong>：结合 ONNX Runtime 的 GPU 支持，利用 CUDA 或 DirectML 加速推理。</li>
+<li><strong>批处理</strong>：如果需要处理多张图像，可以将输入组织为批次（batch），提高吞吐量。例如：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">var</span> <span class="n">inputs</span> <span class="o">=</span> <span class="n">new</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">ImageInput</span><span class="o">&gt;</span> <span class="p">{</span> <span class="n">input1</span><span class="p">,</span> <span class="n">input2</span><span class="p">,</span> <span class="n">input3</span> <span class="p">};</span><span class="k">var</span> <span class="n">batchPrediction</span> <span class="o">=</span> <span class="n">mlContext</span><span class="o">.</span><span class="n">Data</span><span class="o">.</span><span class="n">LoadFromEnumerable</span><span class="p">(</span><span class="n">inputs</span><span class="p">);</span><span class="k">var</span> <span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">Transform</span><span class="p">(</span><span class="n">batchPrediction</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li><strong>缓存机制</strong>：对于频繁使用的模型，保持预测引擎的单例实例，避免重复加载。</li>
+</ol>
+<p>通过这些优化，模型可以在 .NET 环境中实现更高的性能，满足实时应用的需求。</p>
+<hr>
+<h2 id="实际应用场景">实际应用场景
+</h2><p>图像分类模型在 .NET 应用中有广泛的用途，以下是几个典型场景：</p>
+<ol>
+<li><strong>医疗影像分析</strong></li>
+</ol>
+<p>在医疗系统中，部署图像分类模型可以辅助医生识别 X 光片或 MRI 图像中的异常。例如，检测肺部结节或肿瘤。
+2. <strong>智能安防</strong></p>
+<p>在监控系统中，模型可以实时识别可疑物体或行为，如检测闯入者或遗留物品。
+3. <strong>电子商务</strong></p>
+<p>在商品管理系统中，自动分类上传的商品图像，提升搜索和推荐的准确性。</p>
+<h3 id="挑战与解决方案">挑战与解决方案
+</h3><ul>
+<li><strong>数据隐私</strong>：通过加密传输和本地推理保护用户数据。</li>
+<li><strong>模型更新</strong>：定期从云端下载新模型，并使用版本控制管理。</li>
+<li><strong>计算资源</strong>：在资源受限的设备上，使用轻量化模型（如 MobileNet）。</li>
+</ul>
+<hr>
+<h2 id="结论">结论
+</h2><p>本文详细介绍了如何在 .NET 环境下使用 C# 部署和调用 AI 图像分类模型。从环境搭建到模型选择、部署与调用，再到性能优化和应用场景，我们提供了一套完整的实践指南。通过 ML.NET 和预测模式的支持，开发者可以轻松地将强大的 AI 能力集成到 .NET 应用中。</p>
+<p>随着 AI 技术的不断进步和 .NET 平台的持续发展，二者的结合将为开发者带来更多可能性。无论是构建智能桌面应用、Web 服务还是跨平台解决方案，图像分类模型都能为项目增添创新价值。希望本文能为你的 AI 之旅提供启发和帮助！</p>
+<hr>
+<h2 id="参考资料">参考资料
+</h2><ul>
+<li><strong>素材下载地址：</strong> <a class="link" href="https://storage.googleapis.com/download.tensorflow.org/models/inception5h.zip"  target="_blank" rel="noopener"
+    >https://storage.googleapis.com/download.tensorflow.org/models/inception5h.zip</a></li>
+<li><strong>Netron工具地址：</strong> <a class="link" href="https://netron.app/"  target="_blank" rel="noopener"
+    >https://netron.app/</a></li>
+<li><strong>224x224图像素材：</strong> <a class="link" href="https://www.kaggle.com/datasets/abhinavnayak/catsvdogs-transformed/data"  target="_blank" rel="noopener"
+    >https://www.kaggle.com/datasets/abhinavnayak/catsvdogs-transformed/data</a></li>
+<li><strong>tensorflow教程及模型文件和label文件：</strong> <a class="link" href="https://github.com/martinwicke/tensorflow-tutorial"  target="_blank" rel="noopener"
+    >https://github.com/martinwicke/tensorflow-tutorial</a></li>
+<li><strong>Image Classification - Scoring sample：</strong> <a class="link" href="https://github.com/dotnet/machinelearning-samples/blob/main/samples/csharp/getting-started/DeepLearning"  target="_blank" rel="noopener"
+    >https://github.com/dotnet/machinelearning-samples/blob/main/samples/csharp/getting-started/DeepLearning</a>_ImageClassification_TensorFlow/README.md</li>
+<li><strong>ML.NET 官方文档：</strong> <a class="link" href="https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet"  target="_blank" rel="noopener"
+    >https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet</a></li>
+<li><strong>ONNX Model Zoo：</strong> <a class="link" href="https://github.com/onnx/models"  target="_blank" rel="noopener"
+    >https://github.com/onnx/models</a></li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E6%A0%87%E7%AD%BE/">标签</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>本博客所有内容无特殊标注均为本人原创内容，复制请保留原文出处。 Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/post/%E8%BF%99%E6%98%AF%E6%96%87%E7%AB%A0%E5%95%8A%E5%95%8A%E5%95%8A/%E6%96%87%E7%AB%A0/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/avatar.jpg" loading="lazy" data-key="" data-hash="/img/avatar.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">0314 Aas</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E4%B8%83%E4%BD%BF%E7%94%A8emgu-cv%E8%BF%9B%E8%A1%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E6%93%8D%E4%BD%9C/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/avatar.jpg" loading="lazy" data-key="" data-hash="/img/avatar.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">AI与.NET技术实操系列（七）：使用Emgu CV进行计算机视觉操作</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/post/ai%E4%B8%8E.net%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%93%8D%E7%B3%BB%E5%88%97%E4%BA%94%E5%90%91%E9%87%8F%E5%AD%98%E5%82%A8%E4%B8%8E%E7%9B%B8%E4%BC%BC%E6%80%A7%E6%90%9C%E7%B4%A2%E5%9C%A8-.net-%E4%B8%AD%E7%9A%84%E5%AE%9E%E7%8E%B0/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/avatar.jpg" loading="lazy" data-key="" data-hash="/img/avatar.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">AI与.NET技术实操系列（五）：向量存储与相似性搜索在 .NET 中的实现</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/post/%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE-miracastairplaydlnachromecast%E4%BB%A5%E5%8F%8Awidi%E4%BA%94%E5%A4%A7%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D/">
+        
+        
+            <div class="article-image">
+                <img src="/post/%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE-miracastairplaydlnachromecast%E4%BB%A5%E5%8F%8Awidi%E4%BA%94%E5%A4%A7%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D/images/LDQ1bOKTfoNTycxnhgscFidkn1b.9493f34aab817215d665f7b682caa992_hu_3c4e535fbec849d.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 投屏协议 Miracast、AirPlay、DLNA、Chromecast以及WiDi五大投屏协议详细介绍"
+                        
+                        data-hash="md5-lJPzSquBchXWZfe2gsqpkg==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">投屏协议 Miracast、AirPlay、DLNA、Chromecast以及WiDi五大投屏协议详细介绍</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/post/0314-%E8%BF%99%E6%98%AF%E7%9A%84%E5%95%8A%E7%9A%84%E5%95%8A/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/img/avatar.jpg" loading="lazy" data-key="" data-hash="/img/avatar.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">0314 这是的啊的啊</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet'/>
+<div id="waline" class="waline-container"></div>
+<style>
+    .waline-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+        --waline-font-size: var(--article-font-size);
+    }
+    .waline-container .wl-count {
+        color: var(--card-text-color-main);
+    }
+</style><script>
+    
+    Waline.init({"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili","https://npm.elemecdn.com/@waline/emojis@1.1.0/bmoji","https://npm.elemecdn.com/@waline/emojis@1.1.0/weibo","https://npm.elemecdn.com/@waline/emojis@1.2.0/qq"],"lang":"zh-CN","locale":{"admin":"会长","sofa":"还没有人评论哦！快来抢沙发吧~"},"placeholder":"欢迎留下宝贵的评论！","requiredMeta":["name","email","url"],"serverURL":"https://waline-vercel.panwangvie.top/","visitor":false});
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 潘旺基的博客
+    </section>
+    
+    <section class="powerby">
+        
+            潘旺基的博客 <br/>
+        这是使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.60ff84fa93adc010ee92d9961b057c5f1afb226f404ef5029cee454d7ce54b74.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<style>
+    .highlight {
+         
+        max-height: 400px;
+        overflow: hidden;
+    }
+
+    .code-show {
+        max-height: none !important;
+    }
+
+    .code-more-box {
+        width: 100%;
+        padding-top: 78px;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .code-more-btn {
+        display: block;
+        margin: auto;
+        width: 44px;
+        height: 22px;
+        background: #f0f0f5;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        padding-top: 6px;
+        cursor: pointer;
+    }
+
+    .code-more-img {
+        cursor: pointer !important;
+        display: block;
+        margin: auto;
+        width: 22px;
+        height: 16px;
+    }
+</style>
+
+<script>
+  function initCodeMoreBox() {
+    let codeBlocks = document.querySelectorAll(".highlight");
+    if (!codeBlocks) {
+      return;
+    }
+    codeBlocks.forEach(codeBlock => {
+      
+      if (codeBlock.scrollHeight <= codeBlock.clientHeight) {
+        return;
+      }
+      
+      
+      let codeMoreBox = document.createElement('div');
+      codeMoreBox.classList.add('code-more-box');
+      
+      let codeMoreBtn = document.createElement('span');
+      codeMoreBtn.classList.add('code-more-btn');
+      codeMoreBtn.addEventListener('click', () => {
+        codeBlock.classList.add('code-show');
+        codeMoreBox.style.display = 'none';
+        
+        window.dispatchEvent(new Event('resize'))
+      })
+      
+      let img = document.createElement('img');
+      img.classList.add('code-more-img');
+      img.src = "http://localhost:1313/icons/codeMore.svg"
+      
+      codeMoreBtn.appendChild(img);
+      codeMoreBox.appendChild(codeMoreBtn);
+      codeBlock.appendChild(codeMoreBox)
+    })
+  }
+  
+  initCodeMoreBox();
+</script>
+
+
+    </body>
+</html>
