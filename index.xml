@@ -1174,7 +1174,7 @@
         <pubDate>Sun, 23 Mar 2025 21:56:55 +0800</pubDate>
         
         <guid>http://localhost:1313/post/wpf%E4%B8%AD%E4%BD%BF%E7%94%A8uwp%E4%B8%AD%E7%9A%84win10-api/</guid>
-        <description>&lt;img src="http://localhost:1313/post/wpf%E4%B8%AD%E4%BD%BF%E7%94%A8uwp%E4%B8%AD%E7%9A%84win10-api/images/5af9e36d-934e-4a2c-b2b8-6d83bbde001b.png" alt="Featured image of post WPF中使用UWP中的Win10 API" /&gt;&lt;p&gt;前段时间在玩WIFI热点发现， 打开wifi热点需要无线网卡支持承载，我在Win10环境下网卡不支持承载。&lt;/p&gt;
+        <description>&lt;p&gt;前段时间在玩WIFI热点发现， 打开wifi热点需要无线网卡支持承载，我在Win10环境下网卡不支持承载。&lt;/p&gt;
 &lt;p&gt;然后发现在微软官网中的uwp的api中有封装了类库可以开启无线热点：https://docs.microsoft.com/en-us/uwp/api/?view=winrt-20348&lt;/p&gt;
 &lt;p&gt;当直接在WPF的项目中引用Windows.Devices.WiFiDirect.dll库时是无法被引用的。&lt;/p&gt;
 &lt;p&gt;那在WPF中如何使用这些功能还挺强大的API呢。&lt;/p&gt;
@@ -1266,7 +1266,7 @@
         <pubDate>Sun, 23 Mar 2025 21:54:23 +0800</pubDate>
         
         <guid>http://localhost:1313/post/windows%E5%AE%89%E5%85%A8%E4%B8%AD%E5%BF%83%E8%AF%AF%E6%9D%80%E6%8E%92%E6%9F%A5%E9%A1%B9_windows%E5%AE%89%E5%85%A8%E4%B8%AD%E5%BF%83%E6%9D%80%E6%8E%89%E4%BA%86.exe%E8%BD%AF%E4%BB%B6%E6%80%8E%E4%B9%88%E5%8A%9E/</guid>
-        <description>&lt;img src="http://localhost:1313/post/windows%E5%AE%89%E5%85%A8%E4%B8%AD%E5%BF%83%E8%AF%AF%E6%9D%80%E6%8E%92%E6%9F%A5%E9%A1%B9_windows%E5%AE%89%E5%85%A8%E4%B8%AD%E5%BF%83%E6%9D%80%E6%8E%89%E4%BA%86.exe%E8%BD%AF%E4%BB%B6%E6%80%8E%E4%B9%88%E5%8A%9E/images/4caac0d2-a309-4043-b4cf-cf0c186b8e1e.png" alt="Featured image of post Windows安全中心误杀，排查项_windows安全中心杀掉了.exe软件怎么办" /&gt;&lt;p&gt;有些exe和dll会在下载的时候就被windows个杀掉，实际已经签名了还是会被杀掉。&lt;/p&gt;
+        <description>&lt;p&gt;有些exe和dll会在下载的时候就被windows安全中心杀掉，实际已经签名了还是会被杀掉。&lt;/p&gt;
 &lt;p&gt;如何解决，如下在windows安全中心把你文件的目录添加到排查项即可。
 &lt;img src=&#34;http://localhost:1313/post/windows%E5%AE%89%E5%85%A8%E4%B8%AD%E5%BF%83%E8%AF%AF%E6%9D%80%E6%8E%92%E6%9F%A5%E9%A1%B9_windows%E5%AE%89%E5%85%A8%E4%B8%AD%E5%BF%83%E6%9D%80%E6%8E%89%E4%BA%86.exe%E8%BD%AF%E4%BB%B6%E6%80%8E%E4%B9%88%E5%8A%9E/images/4caac0d2-a309-4043-b4cf-cf0c186b8e1e.png&#34;
 	width=&#34;1200&#34;
