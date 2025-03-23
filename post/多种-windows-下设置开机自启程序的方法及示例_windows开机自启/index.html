@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="在 Windows 操作系统中，我们可以通过多种方式来实现程序的开机自启，下面将为大家详细介绍几种常用的方法及其对应的代码示例，同时也会提及一些可能遇到的问题及待解决事项。">
+<title>多种 Windows 下设置开机自启程序的方法及示例</title>
+
+<link rel='canonical' href='http://localhost:1313/post/%E5%A4%9A%E7%A7%8D-windows-%E4%B8%8B%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%96%B9%E6%B3%95%E5%8F%8A%E7%A4%BA%E4%BE%8B_windows%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF/'>
+
+<link rel="stylesheet" href="/scss/style.min.2dd4fbc9eaf62de3be149719e1aae45e19006949dc7111894a252b84a7a57601.css"><meta property='og:title' content="多种 Windows 下设置开机自启程序的方法及示例">
+<meta property='og:description' content="在 Windows 操作系统中，我们可以通过多种方式来实现程序的开机自启，下面将为大家详细介绍几种常用的方法及其对应的代码示例，同时也会提及一些可能遇到的问题及待解决事项。">
+<meta property='og:url' content='http://localhost:1313/post/%E5%A4%9A%E7%A7%8D-windows-%E4%B8%8B%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%96%B9%E6%B3%95%E5%8F%8A%E7%A4%BA%E4%BE%8B_windows%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF/'>
+<meta property='og:site_name' content='潘旺基の博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Windows开机自动' /><meta property='article:published_time' content='2025-03-23T11:03:34&#43;08:00'/><meta property='article:modified_time' content='2025-03-23T11:03:34&#43;08:00'/>
+<meta name="twitter:title" content="多种 Windows 下设置开机自启程序的方法及示例">
+<meta name="twitter:description" content="在 Windows 操作系统中，我们可以通过多种方式来实现程序的开机自启，下面将为大家详细介绍几种常用的方法及其对应的代码示例，同时也会提及一些可能遇到的问题及待解决事项。">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_6497b96e6ca78632.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">潘旺基の博客</a></h1>
+            <h2 class="site-description">一个小小的程序员记录博客</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://blog.csdn.net/PWJvie'
+                        target="_blank"
+                        title="CSDN"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1741450245810" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11504" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M512 1024C229.2224 1024 0 794.7776 0 512 0 229.2224 229.2224 0 512 0c282.7776 0 512 229.2224 512 512 0 282.7776-229.2224 512-512 512z m17.066667-413.525333c34.850133 4.352 68.778667 5.12 102.741333 2.0992 23.04-2.048 44.817067-8.362667 64.170667-21.9136 38.212267-26.794667 49.783467-85.1968 24.251733-123.050667-14.626133-21.7088-36.8128-30.344533-60.757333-35.498667-35.054933-7.543467-70.4512-5.751467-105.847467-3.413333-5.666133 0.3584-6.7584 3.072-7.236267 8.209067-3.072 32.682667-6.536533 65.314133-9.813333 97.962666-2.5088 24.814933-4.932267 49.629867-7.509333 75.605334z m53.4016-33.928534c1.962667-20.906667 3.6352-39.338667 5.4272-57.770666 1.553067-15.906133 3.413333-31.778133 4.727466-47.701334 0.3584-4.283733 1.553067-6.656 5.956267-6.382933 15.616 1.041067 31.709867 0.034133 46.728533 3.652267 36.488533 8.823467 48.725333 54.306133 23.3472 83.029333-15.8208 17.902933-36.7616 23.586133-59.255466 25.088-8.465067 0.546133-17.015467 0.085333-26.9312 0.085333zM512 434.295467c-2.184533-0.648533-3.5328-1.1776-4.932267-1.4336-37.717333-6.877867-75.690667-8.328533-113.646933-2.816-20.974933 3.037867-41.0112 9.489067-57.480533 23.330133-22.9888 19.319467-21.640533 46.848 4.4032 62.0032 13.056 7.594667 28.023467 12.509867 42.5984 17.288533 14.08 4.608 28.996267 6.826667 43.144533 11.264 12.5952 3.925333 14.011733 14.318933 3.584 22.306134-3.345067 2.56-7.441067 5.085867-11.537067 5.751466-11.195733 1.826133-22.698667 4.386133-33.826133 3.566934-24.098133-1.774933-48.042667-5.461333-72.5504-8.430934-1.365333 10.615467-2.935467 23.0912-4.5568 35.9424 4.181333 1.365333 7.68 2.730667 11.264 3.618134 33.9456 8.4992 68.386133 9.608533 102.912 5.12 20.087467-2.6112 39.4752-7.901867 56.695467-19.029334 28.603733-18.4832 36.693333-57.1904-4.676267-75.383466-14.506667-6.382933-30.190933-10.410667-45.482667-15.086934-11.4176-3.4816-23.313067-5.614933-34.525866-9.5232-9.7792-3.413333-11.144533-12.202667-3.037867-18.397866 4.6592-3.549867 10.717867-6.997333 16.384-7.3728a480.853333 480.853333 0 0 1 53.384533-0.853334c15.377067 0.699733 30.651733 3.549867 46.4896 5.5296L512 434.295467z m257.143467 2.048L750.933333 614.2976h54.152534c4.778667-45.636267 9.710933-90.7264 14.062933-135.8848 0.6144-6.365867 2.3552-8.840533 8.686933-9.0112 11.434667-0.273067 22.8864-1.979733 34.286934-1.570133 23.722667 0.853333 42.3936 9.728 38.4 43.264-2.901333 24.2688-5.597867 48.571733-8.2432 72.874666-1.092267 10.069333-1.826133 20.189867-2.730667 30.4128h55.330133c3.584-35.259733 7.9872-70.058667 10.496-104.994133 3.413333-47.4624-17.7664-73.3184-64.682666-80.213333-40.96-6.007467-81.339733-0.341333-121.5488 7.133866z m-483.498667 134.6048c-8.738133 1.297067-16.384 2.798933-24.098133 3.4816-25.6512 2.235733-51.319467 3.9424-76.305067-4.266667-13.909333-4.590933-24.6784-12.578133-29.7984-25.9584-7.901867-20.701867 0.887467-47.104 19.831467-60.3136 17.373867-12.117333 37.717333-15.9232 58.453333-15.9232 22.545067-0.017067 45.090133 2.423467 68.232533 3.84L307.2 432.298667c-15.069867-1.723733-29.4912-3.925333-43.997867-4.9152-41.0112-2.798933-80.64 2.6112-117.469866 20.462933-30.020267 14.557867-52.053333 36.010667-58.6752 68.130133-7.850667 38.144 11.537067 69.495467 51.7632 85.845334 19.1488 7.765333 39.287467 12.509867 60.0064 12.5952 24.746667 0.1024 49.493333-1.570133 74.205866-2.952534 3.106133-0.170667 8.311467-2.901333 8.669867-5.034666 1.979733-11.554133 2.730667-23.278933 3.9424-35.464534z" fill="#707070" p-id="11505"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/panwangvie'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.cnblogs.com/panwangvie'
+                        target="_blank"
+                        title="博客园"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1741450131681" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10351" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M512 0C229.234 0 0 229.226 0 512c0 282.766 229.234 512 512 512s512-229.234 512-512C1024 229.226 794.766 0 512 0zM228.777 836.067c-63.164 0-114.372-51.208-114.372-114.372s51.208-114.371 114.372-114.371 114.371 51.208 114.371 114.371c0 63.172-51.208 114.372-114.371 114.372z m420.556-89.613a391.867 391.867 0 0 1-1.99 16.975c-7.26 30.204-33.95 52.899-66.377 52.899-38.104 0-68.991-34.159-68.991-72.205 0-5.877 0.816-11.463 2.206-16.775C512.425 596.251 410.2 489.48 280.976 480.464l-6.344-0.74-1.016-0.042c-5.453-0.217-10.93-0.733-16.142-2.331a67.959 67.959 0 0 1-47.92-65.079c0-37.605 30.245-68.091 67.55-68.091 0.3 0 0.591 0.041 0.891 0.05l0.125-0.05c205.708 2.14 371.837 169.484 371.837 375.7 0 7.717-0.341 15.343-0.824 22.944 0.066 1.207 0.191 2.397 0.2 3.63z m254.085-63.33c-10.856 45.173-25.808 104.116-74.311 104.116-56.994 0-48.236-66.086-48.236-122.997 0-8.791 1.224-17.15 3.297-25.1-2.64-196.109-169.835-387.813-363.137-401.292l-35.807-5.828c-42.117-7.492-111.716-3.255-111.716-49.193 0-56.254 50.234-81.862 106.038-81.862 0.45 0 0.882 0.058 1.332 0.067l0.183-0.067c307.725 3.18 526.253 208.546 526.253 517.028a538.474 538.474 0 0 1-1.232 34.317c0.108 1.807 0.291 3.596 0.308 5.428a542.72 542.72 0 0 1-2.972 25.384z" fill="#5B5C5C" p-id="10352"></path></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E9%93%BE/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li>
+          <ol>
+            <li></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/post/%E5%A4%9A%E7%A7%8D-windows-%E4%B8%8B%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%96%B9%E6%B3%95%E5%8F%8A%E7%A4%BA%E4%BE%8B_windows%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF/">多种 Windows 下设置开机自启程序的方法及示例</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            在 Windows 操作系统中，我们可以通过多种方式来实现程序的开机自启，下面将为大家详细介绍几种常用的方法及其对应的代码示例，同时也会提及一些可能遇到的问题及待解决事项。
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-03-23</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 4 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h4 id="">
+</h4><p>在 Windows 操作系统中，我们可以通过多种方式来实现程序的开机自启，下面将为大家详细介绍几种常用的方法及其对应的代码示例，同时也会提及一些可能遇到的问题及待解决事项。</p>
+<h5 id="一使用注册表registry">一、使用注册表（Registry）
+</h5><p>注册表是 Windows 操作系统中用于存储系统和应用程序配置信息的重要数据库，我们可以通过操作特定的注册表键来设置程序的开机自启。</p>
+<ol>
+<li><strong>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon</strong>
+<ul>
+<li><strong>特点</strong>：这个注册表键下设置的应用启动时机很早，在系统登录前就会启动相应程序。非以管理员权限运行。它比较适用于那些需要在开机早期快速启动的应用场景。</li>
+<li><strong>代码示例</strong>：</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">using Microsoft.Win32;
+</span></span><span class="line"><span class="cl">class Program
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    static void Main()
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        // 获取当前可执行文件的路径
+</span></span><span class="line"><span class="cl">        string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+</span></span><span class="line"><span class="cl">        // 创建或打开注册表项（此键通常需要管理员权限才能修改，需确保运行环境具备相应权限）
+</span></span><span class="line"><span class="cl">        RegistryKey key = Registry.LocalMachine.OpenSubKey(&#34;SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon&#34;, true);
+</span></span><span class="line"><span class="cl">        // 设置开机自启动项（键值名称和具体设置可根据实际需求调整）
+</span></span><span class="line"><span class="cl">        key.SetValue(&#34;YourAppName&#34;, path);
+</span></span><span class="line"><span class="cl">        // 关闭注册表项
+</span></span><span class="line"><span class="cl">        key.Close();
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li><strong>SOFTWARE\Microsoft\Windows\CurrentVersion\Run</strong>
+<ul>
+<li><strong>特点</strong>：此注册表键位于当前用户配置单元中，主要用于设置当前用户登录时自动运行的程序。每个用户都可以有自己独立的设置，普通用户通常就能够进行修改，相对来说对系统整体的影响范围更小，更侧重于满足用户个人应用程序的开机启动需求。</li>
+<li><strong>代码示例</strong>：</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">using Microsoft.Win32;
+</span></span><span class="line"><span class="cl">class Program
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    static void Main()
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        // 获取当前可执行文件的路径
+</span></span><span class="line"><span class="cl">        string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+</span></span><span class="line"><span class="cl">        // 创建或打开注册表项（当前用户可操作）
+</span></span><span class="line"><span class="cl">        RegistryKey key = Registry.CurrentUser.OpenSubKey(&#34;SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run&#34;, true);
+</span></span><span class="line"><span class="cl">        // 设置开机自启动项（这里可自定义启动项的名称，方便识别和管理）
+</span></span><span class="line"><span class="cl">        key.SetValue(&#34;YourAppName&#34;, path);
+</span></span><span class="line"><span class="cl">        // 关闭注册表项
+</span></span><span class="line"><span class="cl">        key.Close();
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="二使用特殊的快捷方式startup-文件夹">二、使用特殊的快捷方式（Startup 文件夹）
+</h5><p>Windows 操作系统为我们提供了一个便捷的 “启动（Startup）” 文件夹机制来实现开机自启功能。</p>
+<ol>
+<li><strong>原理</strong>：只要将程序的快捷方式放置在该文件夹中，对应的程序就会在系统开机时自动运行，这是一种较为直观且易于理解的方式，非常适合普通用户为自己常用的程序设置开机启动。</li>
+<li><strong>代码示例</strong>：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">using System.IO;
+</span></span><span class="line"><span class="cl">using IWshRuntimeLibrary;
+</span></span><span class="line"><span class="cl">class Program
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    static void Main()
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        // 获取当前可执行文件的路径
+</span></span><span class="line"><span class="cl">        string exePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+</span></span><span class="line"><span class="cl">        // 获取启动文件夹路径（当前用户）
+</span></span><span class="line"><span class="cl">        string startupFolder = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+</span></span><span class="line"><span class="cl">        // 创建 WshShell 对象，用于操作快捷方式
+</span></span><span class="line"><span class="cl">        WshShell shell = new WshShell();
+</span></span><span class="line"><span class="cl">        // 创建快捷方式对象，并指定快捷方式在启动文件夹中的文件名（可根据实际情况修改）
+</span></span><span class="line"><span class="cl">        IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(Path.Combine(startupFolder, &#34;YourAppName.lnk&#34;));
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        shortcut.TargetPath = exePath;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        shortcut.Save();
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h5 id="三使用组策略group-policy适用于企业环境或域管理">三、使用组策略（Group Policy）（适用于企业环境或域管理）
+</h5><p>在企业网络环境中，管理员往往需要对多台计算机进行统一的配置管理，组策略就是一个强大的工具，可用于配置计算机的各种设置，其中也包括程序的开机自启。</p>
+<ol>
+<li><strong>原理</strong>：通过组策略编辑器，管理员可以将程序的安装包或可执行文件路径添加到相关的开机自启动设置项中，从而实现批量控制计算机上程序的开机启动情况，确保企业内部的软件使用规范和系统安全策略得以有效执行。</li>
+<li><strong>操作步骤（简略）</strong>：
+<ul>
+<li>通过 <code>gpedit.msc</code> 打开组策略编辑器。</li>
+<li>在 “计算机配置” 或 “用户配置” - &gt; “管理模板” - &gt; “系统” - &gt; “登录” 部分找到相关的开机自启动设置项。</li>
+<li>将程序的路径添加到允许的开机自启动程序列表中（具体的设置项名称和操作细节需根据实际企业需求和策略进行调整）。</li>
+</ul>
+</li>
+</ol>
+<h5 id="四使用任务计划设置">四、使用任务计划设置
+</h5><p>任务计划是一种非常灵活的方式，它不仅可以设置程序以最高权限运行，还能根据多种不同的运行时机来触发任务，甚至可以在添加账户或者移除账户等特定事件发生时触发任务启动。</p>
+<ol>
+<li><strong>代码示例</strong>：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-zed" data-lang="zed"><span class="line"><span class="cl"><span class="n">using</span><span class="w"> </span><span class="n">Microsoft</span><span class="p">.</span><span class="n">Win32</span><span class="p">.</span><span class="n">TaskScheduler</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">class</span><span class="w"> </span><span class="n">Program</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 注册任务的方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="n">private</span><span class="w"> </span><span class="n">static</span><span class="w"> </span><span class="n">bool</span><span class="w"> </span><span class="n">RegisterTask</span><span class="p">(</span><span class="n">string</span><span class="w"> </span><span class="n">taskName</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">ExecAction</span><span class="w"> </span><span class="n">execAction</span><span class="p">,</span><span class="w"> </span><span class="n">Action</span><span class="o">&lt;</span><span class="n">TriggerCollection</span><span class="o">&gt;</span><span class="w"> </span><span class="n">taskDef</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">try</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">using</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">TaskService</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">using</span><span class="w"> </span><span class="n">TaskDefinition</span><span class="w"> </span><span class="kt">definition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">service</span><span class="p">.</span><span class="n">NewTask</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kt">definition</span><span class="p">.</span><span class="n">RegistrationInfo</span><span class="p">.</span><span class="n">Version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">Version</span><span class="p">(</span><span class="err">1</span><span class="p">,</span><span class="w"> </span><span class="err">0</span><span class="p">,</span><span class="w"> </span><span class="err">0</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kt">definition</span><span class="p">.</span><span class="n">RegistrationInfo</span><span class="p">.</span><span class="n">Date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kt">definition</span><span class="p">.</span><span class="n">RegistrationInfo</span><span class="p">.</span><span class="n">Author</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$&#34;</span><span class="p">{</span><span class="n">Environment</span><span class="p">.</span><span class="n">UserDomainName</span><span class="p">}</span><span class="err">\\</span><span class="p">{</span><span class="n">Environment</span><span class="p">.</span><span class="n">UserName</span><span class="p">}</span><span class="err">&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kt">definition</span><span class="p">.</span><span class="n">Actions</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">execAction</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kt">definition</span><span class="p">.</span><span class="n">Principal</span><span class="p">.</span><span class="n">UserId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userId</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kt">definition</span><span class="p">.</span><span class="n">Principal</span><span class="p">.</span><span class="n">LogonType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TaskLogonType</span><span class="p">.</span><span class="n">InteractiveToken</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kt">definition</span><span class="p">.</span><span class="n">Principal</span><span class="p">.</span><span class="n">RunLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TaskRunLevel</span><span class="p">.</span><span class="n">Highest</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kt">definition</span><span class="p">.</span><span class="n">Settings</span><span class="p">.</span><span class="n">DisallowStartIfOnBatteries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// 只有在交流电源下才执行
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">            </span><span class="kt">definition</span><span class="p">.</span><span class="n">Settings</span><span class="p">.</span><span class="n">RunOnlyIfIdle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// 仅当计算机空闲下才执行
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">            </span><span class="kt">definition</span><span class="p">.</span><span class="n">Settings</span><span class="p">.</span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kt">definition</span><span class="p">.</span><span class="n">Settings</span><span class="p">.</span><span class="n">AllowDemandStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kt">definition</span><span class="p">.</span><span class="n">Settings</span><span class="p">.</span><span class="n">AllowHardTerminate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">taskDef</span><span class="p">(</span><span class="kt">definition</span><span class="p">.</span><span class="n">Triggers</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">using</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">service</span><span class="p">.</span><span class="n">RootFolder</span><span class="p">.</span><span class="n">RegisterTaskDefinition</span><span class="p">(</span><span class="n">taskName</span><span class="p">,</span><span class="w"> </span><span class="kt">definition</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">TaskCreation</span><span class="p">.</span><span class="n">CreateOrUpdate</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="err">$&#34;</span><span class="p">{</span><span class="n">Environment</span><span class="p">.</span><span class="n">UserDomainName</span><span class="p">}</span><span class="err">\\</span><span class="p">{</span><span class="n">userId</span><span class="p">}</span><span class="err">&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">null</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">TaskLogonType</span><span class="p">.</span><span class="n">None</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="err">&#34;&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">return</span><span class="w"> </span><span class="n">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 这里可以添加更详细的异常处理逻辑，比如记录日志等，便于排查问题
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">            </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="err">$&#34;注册任务时出现异常</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="n">ex</span><span class="p">.</span><span class="n">Message</span><span class="p">}</span><span class="err">&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">return</span><span class="w"> </span><span class="n">false</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">public</span><span class="w"> </span><span class="n">static</span><span class="w"> </span><span class="n">void</span><span class="w"> </span><span class="n">CreateTask</span><span class="p">(</span><span class="n">string</span><span class="w"> </span><span class="n">taskName</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">exePath</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">arguments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">&#34;&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">RegisterTask</span><span class="p">(</span><span class="n">taskName</span><span class="p">,</span><span class="w"> </span><span class="n">userId</span><span class="p">,</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">ExecAction</span><span class="p">(</span><span class="n">exePath</span><span class="p">,</span><span class="w"> </span><span class="n">arguments</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">triggers</span><span class="w"> </span><span class="o">=&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="c1">// 帐户添加时启动
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">                </span><span class="n">triggers</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">new</span><span class="w"> </span><span class="n">EventTrigger</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">true</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">Subscription</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="err">&#34;</span><span class="o">&lt;</span><span class="n">QueryList</span><span class="o">&gt;&lt;</span><span class="n">Query</span><span class="w"> </span><span class="n">Id</span><span class="o">=</span><span class="err">\&#34;0\&#34;</span><span class="w"> </span><span class="n">Path</span><span class="o">=</span><span class="err">\&#34;</span><span class="n">Security</span><span class="err">\&#34;</span><span class="o">&gt;&lt;</span><span class="n">Select</span><span class="w"> </span><span class="n">Path</span><span class="o">=</span><span class="err">\&#34;</span><span class="n">Security</span><span class="err">\&#34;</span><span class="o">&gt;*</span><span class="p">[</span><span class="n">System</span><span class="p">[</span><span class="n">Provider</span><span class="p">[</span><span class="err">@</span><span class="n">Name</span><span class="o">=</span><span class="err">&#39;</span><span class="n">Microsoft</span><span class="o">-</span><span class="n">Windows</span><span class="o">-</span><span class="n">Security</span><span class="o">-</span><span class="n">Auditing</span><span class="err">&#39;</span><span class="p">]</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">EventID</span><span class="o">=</span><span class="err">4722</span><span class="p">]]</span><span class="o">&lt;/</span><span class="n">Select</span><span class="o">&gt;&lt;/</span><span class="n">Query</span><span class="o">&gt;&lt;/</span><span class="n">QueryList</span><span class="o">&gt;</span><span class="err">&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">});</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="c1">// 帐户移除时启动
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">                </span><span class="n">triggers</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">new</span><span class="w"> </span><span class="n">EventTrigger</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">true</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">Subscription</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="err">&#34;</span><span class="o">&lt;</span><span class="n">QueryList</span><span class="o">&gt;&lt;</span><span class="n">Query</span><span class="w"> </span><span class="n">Id</span><span class="o">=</span><span class="err">\&#34;0\&#34;</span><span class="w"> </span><span class="n">Path</span><span class="o">=</span><span class="err">\&#34;</span><span class="n">Security</span><span class="err">\&#34;</span><span class="o">&gt;&lt;</span><span class="n">Select</span><span class="w"> </span><span class="n">Path</span><span class="o">=</span><span class="err">\&#34;</span><span class="n">Security</span><span class="err">\&#34;</span><span class="o">&gt;*</span><span class="p">[</span><span class="n">System</span><span class="p">[</span><span class="n">Provider</span><span class="p">[</span><span class="err">@</span><span class="n">Name</span><span class="o">=</span><span class="err">&#39;</span><span class="n">Microsoft</span><span class="o">-</span><span class="n">Windows</span><span class="o">-</span><span class="n">Security</span><span class="o">-</span><span class="n">Auditing</span><span class="err">&#39;</span><span class="p">]</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">EventID</span><span class="o">=</span><span class="err">4726</span><span class="p">]]</span><span class="o">&lt;/</span><span class="n">Select</span><span class="o">&gt;&lt;/</span><span class="n">Query</span><span class="o">&gt;&lt;/</span><span class="n">QueryList</span><span class="o">&gt;</span><span class="err">&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">});</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="c1">// 用户登录时启动
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">                </span><span class="n">triggers</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">new</span><span class="w"> </span><span class="n">LogonTrigger</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">Enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">true</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">UserId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userId</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">Delay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromMinutes</span><span class="p">(</span><span class="err">1</span><span class="p">),</span><span class="c1">//延迟1分钟
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">                </span><span class="p">});</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">});</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li><strong>待解决的 todo 项</strong>：
+目前在通过创建或者修改计划任务的时候设置某些账户，会出现如下报错情况，并且即使通过系统手动创建也会出现同样的错误，希望大家能一起探讨下好的处理方式呀。</li>
+</ol>
+<p><strong>错误描述</strong>: (11,28):UserId:panwangvie</p>
+<p><strong>异常</strong>: System.ArgumentException: (11,28):UserId:panwangvie
+在 Microsoft.Win32.TaskScheduler.V2Interop.ITaskFolder.RegisterTaskDefinition (String Path, ITaskDefinition pDefinition, Int32 flags, Object UserId, Object password, TaskLogonType LogonType, Object sddl)
+在 Microsoft.Win32.TaskScheduler.TaskFolder.RegisterTaskDefinition (String path, TaskDefinition definition, TaskCreation createType, String userId, String password, TaskLogonType logonType, String sddl)</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/windows%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8/">Windows开机自动</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>本博客所有内容无特殊标注均为本人原创内容，复制请保留原文出处。 Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/post/c%23%E6%89%93%E5%BC%80wifi%E7%83%AD%E7%82%B9wifi%E5%85%B1%E4%BA%AB%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E5%BC%8F%E6%80%BB%E7%BB%93%E5%9B%9B/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">C#打开WiFi热点，WiFi共享的四种方式总结（四）</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/post/c%23%E6%89%93%E5%BC%80wifi%E7%83%AD%E7%82%B9wifi%E5%85%B1%E4%BA%AB%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E5%BC%8F%E6%80%BB%E7%BB%93%E4%B8%89/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">C#打开WiFi热点，WiFi共享的四种方式总结（三）</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/post/c%23%E6%89%93%E5%BC%80wifi%E7%83%AD%E7%82%B9wifi%E5%85%B1%E4%BA%AB%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E5%BC%8F%E6%80%BB%E7%BB%93%E4%BA%8C/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">C#打开WiFi热点，WiFi共享的四种方式总结（二）</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/post/c%23%E6%89%93%E5%BC%80wifi%E7%83%AD%E7%82%B9wifi%E5%85%B1%E4%BA%AB%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E5%BC%8F%E6%80%BB%E7%BB%93%E4%B8%80/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">C#打开WiFi热点，WiFi共享的四种方式总结（一）</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/post/wpf%E4%B8%AD%E4%BD%BF%E7%94%A8uwp%E4%B8%AD%E7%9A%84win10-api/">
+        
+        
+            <div class="article-image">
+                <img src="/post/wpf%E4%B8%AD%E4%BD%BF%E7%94%A8uwp%E4%B8%AD%E7%9A%84win10-api/images/5af9e36d-934e-4a2c-b2b8-6d83bbde001b.a7faf294b9faff169d05c7254ca880c8_hu_cde6ec31f8fcd9fc.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post WPF中使用UWP中的Win10 API"
+                        
+                        data-hash="md5-p/rylLn6/xadBcclTKiAyA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">WPF中使用UWP中的Win10 API</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet'/>
+<div id="waline" class="waline-container"></div>
+<style>
+    .waline-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+        --waline-font-size: var(--article-font-size);
+    }
+    .waline-container .wl-count {
+        color: var(--card-text-color-main);
+    }
+</style><script>
+    
+    Waline.init({"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili","https://npm.elemecdn.com/@waline/emojis@1.1.0/bmoji","https://npm.elemecdn.com/@waline/emojis@1.1.0/weibo","https://npm.elemecdn.com/@waline/emojis@1.2.0/qq"],"lang":"zh-CN","locale":{"admin":"会长","sofa":"还没有人评论哦！快来抢沙发吧~"},"placeholder":"欢迎留下宝贵的评论！","requiredMeta":["name","email","url"],"serverURL":"https://waline-vercel.panwangvie.top/","visitor":false});
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 潘旺基的博客
+    </section>
+    
+    <section class="powerby">
+        
+            潘旺基的博客 <br/>
+        这是使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.60ff84fa93adc010ee92d9961b057c5f1afb226f404ef5029cee454d7ce54b74.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<style>
+    .highlight {
+         
+        max-height: 400px;
+        overflow: hidden;
+    }
+
+    .code-show {
+        max-height: none !important;
+    }
+
+    .code-more-box {
+        width: 100%;
+        padding-top: 78px;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .code-more-btn {
+        display: block;
+        margin: auto;
+        width: 44px;
+        height: 22px;
+        background: #f0f0f5;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        padding-top: 6px;
+        cursor: pointer;
+    }
+
+    .code-more-img {
+        cursor: pointer !important;
+        display: block;
+        margin: auto;
+        width: 22px;
+        height: 16px;
+    }
+</style>
+
+<script>
+  function initCodeMoreBox() {
+    let codeBlocks = document.querySelectorAll(".highlight");
+    if (!codeBlocks) {
+      return;
+    }
+    codeBlocks.forEach(codeBlock => {
+      
+      if (codeBlock.scrollHeight <= codeBlock.clientHeight) {
+        return;
+      }
+      
+      
+      let codeMoreBox = document.createElement('div');
+      codeMoreBox.classList.add('code-more-box');
+      
+      let codeMoreBtn = document.createElement('span');
+      codeMoreBtn.classList.add('code-more-btn');
+      codeMoreBtn.addEventListener('click', () => {
+        codeBlock.classList.add('code-show');
+        codeMoreBox.style.display = 'none';
+        
+        window.dispatchEvent(new Event('resize'))
+      })
+      
+      let img = document.createElement('img');
+      img.classList.add('code-more-img');
+      img.src = "http://localhost:1313/icons/codeMore.svg"
+      
+      codeMoreBtn.appendChild(img);
+      codeMoreBox.appendChild(codeMoreBtn);
+      codeBlock.appendChild(codeMoreBox)
+    })
+  }
+  
+  initCodeMoreBox();
+</script>
+
+
+    </body>
+</html>

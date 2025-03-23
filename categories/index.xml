@@ -16,6 +16,14 @@
         <description></description>
         </item>
         <item>
+        <title>投屏相关</title>
+        <link>http://localhost:1313/categories/%E6%8A%95%E5%B1%8F%E7%9B%B8%E5%85%B3/</link>
+        <pubDate>Fri, 14 Mar 2025 23:16:45 +0800</pubDate>
+        
+        <guid>http://localhost:1313/categories/%E6%8A%95%E5%B1%8F%E7%9B%B8%E5%85%B3/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Hugo&#43;Stack</title>
         <link>http://localhost:1313/categories/hugo&#43;stack/</link>
         <pubDate>Fri, 14 Mar 2025 21:58:59 +0800</pubDate>
@@ -26,7 +34,7 @@
         <item>
         <title>Test</title>
         <link>http://localhost:1313/categories/test/</link>
-        <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>http://localhost:1313/categories/test/</guid>
         <description>&lt;img src="http://localhost:1313/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>投屏相关 on 潘旺基の博客</title>
+        <link>http://localhost:1313/categories/%E6%8A%95%E5%B1%8F%E7%9B%B8%E5%85%B3/</link>
+        <description>Recent content in 投屏相关 on 潘旺基の博客</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>潘旺基的博客</copyright>
+        <lastBuildDate>Fri, 14 Mar 2025 23:16:45 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E6%8A%95%E5%B1%8F%E7%9B%B8%E5%85%B3/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>投屏协议 Miracast、AirPlay、DLNA、Chromecast以及WiDi五大投屏协议详细介绍</title>
+        <link>http://localhost:1313/post/%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE-miracastairplaydlnachromecast%E4%BB%A5%E5%8F%8Awidi%E4%BA%94%E5%A4%A7%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D/</link>
+        <pubDate>Fri, 14 Mar 2025 23:16:45 +0800</pubDate>
+        
+        <guid>http://localhost:1313/post/%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE-miracastairplaydlnachromecast%E4%BB%A5%E5%8F%8Awidi%E4%BA%94%E5%A4%A7%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D/</guid>
+        <description>&lt;img src="http://localhost:1313/post/%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE-miracastairplaydlnachromecast%E4%BB%A5%E5%8F%8Awidi%E4%BA%94%E5%A4%A7%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D/images/LDQ1bOKTfoNTycxnhgscFidkn1b.png" alt="Featured image of post 投屏协议 Miracast、AirPlay、DLNA、Chromecast以及WiDi五大投屏协议详细介绍" /&gt;&lt;p&gt;&lt;strong&gt;无线投屏协议&lt;/strong&gt;是指通过无线网络将智能移动设备的屏幕图像和声音实时传输至另一台显示设备上，实现内容的同屏展示的技术标准。目前，市场上存在多种无线投屏协议，其中五大主流的无线投屏协议包括&lt;strong&gt;Miracast、AirPlay、DLNA、Chromecast以及WiDi&lt;/strong&gt;。以下是对这五大协议的详细介绍：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE-miracastairplaydlnachromecast%E4%BB%A5%E5%8F%8Awidi%E4%BA%94%E5%A4%A7%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D/images/LDQ1bOKTfoNTycxnhgscFidkn1b.png&#34;
+	width=&#34;651&#34;
+	height=&#34;505&#34;
+	srcset=&#34;http://localhost:1313/post/%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE-miracastairplaydlnachromecast%E4%BB%A5%E5%8F%8Awidi%E4%BA%94%E5%A4%A7%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D/images/LDQ1bOKTfoNTycxnhgscFidkn1b_hu_4f4e0bb86ea7c5d7.png 480w, http://localhost:1313/post/%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE-miracastairplaydlnachromecast%E4%BB%A5%E5%8F%8Awidi%E4%BA%94%E5%A4%A7%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D/images/LDQ1bOKTfoNTycxnhgscFidkn1b_hu_883d300b451868f9.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;128&#34;
+		data-flex-basis=&#34;309px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;1-miracast&#34;&gt;1. Miracast
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;技术特点&lt;/strong&gt;：由Wi-Fi联盟制定，以WIFI连接为基础的&lt;strong&gt;无线投屏&lt;/strong&gt;协议，支持Android和Windows设备。&lt;strong&gt;Miracast无线投屏&lt;/strong&gt;是兼容性最广的投屏协议，国内大多数Android手机、智能电视都支持&lt;strong&gt;Miracast投屏协议&lt;/strong&gt;。&lt;strong&gt;Miracast&lt;/strong&gt;使用Wi-Fi Direct技术，设备之间直接建立连接，无需依赖路由器或互联网&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;适用设备&lt;/strong&gt;：Android 5.0以上手机、Windows 8/10电脑。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;限制&lt;/strong&gt;：传输基于UDP协议，易受干扰，可能导致接收端画质问题；不同Android设备开启&lt;strong&gt;Miracast&lt;/strong&gt;的方式不一致，推广困难。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE-miracastairplaydlnachromecast%E4%BB%A5%E5%8F%8Awidi%E4%BA%94%E5%A4%A7%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D/images/O3QXbIMWHo7b1bx3SJ8camkQn0c.png&#34;
+	width=&#34;1064&#34;
+	height=&#34;650&#34;
+	srcset=&#34;http://localhost:1313/post/%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE-miracastairplaydlnachromecast%E4%BB%A5%E5%8F%8Awidi%E4%BA%94%E5%A4%A7%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D/images/O3QXbIMWHo7b1bx3SJ8camkQn0c_hu_bfd8a606ebf5363b.png 480w, http://localhost:1313/post/%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE-miracastairplaydlnachromecast%E4%BB%A5%E5%8F%8Awidi%E4%BA%94%E5%A4%A7%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D/images/O3QXbIMWHo7b1bx3SJ8camkQn0c_hu_be2d1d81fe55dd37.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;163&#34;
+		data-flex-basis=&#34;392px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h1 id=&#34;2-airplay&#34;&gt;2. AirPlay
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;技术特点&lt;/strong&gt;：苹果开发的一种无线技术，通过Wi-Fi将iPhone、iPad等iOS设备上的音视频、图片通过无线方式传输到支持&lt;strong&gt;AirPlay&lt;/strong&gt;的设备，如Apple TV、智能电视等。&lt;strong&gt;AirPlay&lt;/strong&gt;支持推送和镜像两种模式，具有高清、低延迟、易用等特点。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;操作方式&lt;/strong&gt;：在iOS设备上呼出控制中心，选择“&lt;strong&gt;屏幕镜像&lt;/strong&gt;”并连接目标设备。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;限制&lt;/strong&gt;：要求苹果设备与投屏设备在同一局域网内，不支持跨网段使用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;3-dlna&#34;&gt;3. DLNA
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;技术特点&lt;/strong&gt;：由索尼、英特尔、微软等发起的一套PC、移动设备、消费电器之间互联互通的协议。&lt;strong&gt;DLNA&lt;/strong&gt;只支持推送模式，具有标准化、跨平台、易扩展等特点。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;适用场景&lt;/strong&gt;：家庭影院，不太适合企业环境。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;优势&lt;/strong&gt;：画质无损，对网络要求较高。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;4-chromecast&#34;&gt;4. Chromecast
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;技术特点&lt;/strong&gt;：谷歌开发的&lt;strong&gt;无线投屏技术&lt;/strong&gt;，需要使用一个小型的硬件设备插入电视或显示器的HDMI接口，然后通过WiFi与手机或电脑连接，实现视频、音乐、网页等内容的&lt;strong&gt;投屏&lt;/strong&gt;。&lt;strong&gt;Chromecast&lt;/strong&gt;支持推送和镜像两种模式，具有智能化、云端化、开放性等特点。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;优势&lt;/strong&gt;：体验更接近于DLNA，但比DLNA更加灵活和智能。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;5-widi&#34;&gt;5. WiDi
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;技术特点&lt;/strong&gt;：全称为Intel Wireless Display（无线高清技术），是Intel公司开发的一种&lt;strong&gt;无线投屏技术&lt;/strong&gt;。它允许用户通过WiFi信号将电脑屏幕的内容无线传输到支持WiDi的显示设备上。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;优势&lt;/strong&gt;：无需安装软件，即可实现&lt;strong&gt;无线投屏&lt;/strong&gt;，使用便捷。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;限制&lt;/strong&gt;：需要发射端设备具备HDMI输出接口，限制了使用范围。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE-miracastairplaydlnachromecast%E4%BB%A5%E5%8F%8Awidi%E4%BA%94%E5%A4%A7%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D/images/INV9bUKusoj1NvxpYMecdAdenJq.png&#34;
+	width=&#34;872&#34;
+	height=&#34;564&#34;
+	srcset=&#34;http://localhost:1313/post/%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE-miracastairplaydlnachromecast%E4%BB%A5%E5%8F%8Awidi%E4%BA%94%E5%A4%A7%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D/images/INV9bUKusoj1NvxpYMecdAdenJq_hu_187cb1b2ae1c43ca.png 480w, http://localhost:1313/post/%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE-miracastairplaydlnachromecast%E4%BB%A5%E5%8F%8Awidi%E4%BA%94%E5%A4%A7%E6%8A%95%E5%B1%8F%E5%8D%8F%E8%AE%AE%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D/images/INV9bUKusoj1NvxpYMecdAdenJq_hu_4613e509a5eb447b.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;154&#34;
+		data-flex-basis=&#34;371px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;综上所述，这&lt;strong&gt;五大无线投屏协议&lt;/strong&gt;各有其技术特点和适用场景。在选择&lt;strong&gt;投屏协议&lt;/strong&gt;时，用户应根据自身设备、网络环境以及使用需求来做出合理的选择。&lt;/p&gt;
+&lt;p&gt;参考链接：&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>国家码 on 潘旺基の博客</title>
+        <link>http://localhost:1313/tags/%E5%9B%BD%E5%AE%B6%E7%A0%81/</link>
+        <description>Recent content in 国家码 on 潘旺基の博客</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>潘旺基的博客</copyright>
+        <lastBuildDate>Sun, 23 Mar 2025 21:56:02 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%9B%BD%E5%AE%B6%E7%A0%81/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>关于网卡频段设置（设置国家码）</title>
+        <link>http://localhost:1313/post/%E5%85%B3%E4%BA%8E%E7%BD%91%E5%8D%A1%E9%A2%91%E6%AE%B5%E8%AE%BE%E7%BD%AE%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%AE%B6%E7%A0%81_%E5%BD%93ap%E7%9A%84%E9%A2%91%E6%AE%B5%E8%A2%AB%E8%AE%BE%E7%BD%AE%E6%88%905g%E6%97%B6%E5%BF%85%E9%A1%BB%E8%AE%BE%E7%BD%AEcontry-code/</link>
+        <pubDate>Sun, 23 Mar 2025 21:56:02 +0800</pubDate>
+        
+        <guid>http://localhost:1313/post/%E5%85%B3%E4%BA%8E%E7%BD%91%E5%8D%A1%E9%A2%91%E6%AE%B5%E8%AE%BE%E7%BD%AE%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%AE%B6%E7%A0%81_%E5%BD%93ap%E7%9A%84%E9%A2%91%E6%AE%B5%E8%A2%AB%E8%AE%BE%E7%BD%AE%E6%88%905g%E6%97%B6%E5%BF%85%E9%A1%BB%E8%AE%BE%E7%BD%AEcontry-code/</guid>
+        <description>&lt;img src="http://localhost:1313/post/%E5%85%B3%E4%BA%8E%E7%BD%91%E5%8D%A1%E9%A2%91%E6%AE%B5%E8%AE%BE%E7%BD%AE%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%AE%B6%E7%A0%81_%E5%BD%93ap%E7%9A%84%E9%A2%91%E6%AE%B5%E8%A2%AB%E8%AE%BE%E7%BD%AE%E6%88%905g%E6%97%B6%E5%BF%85%E9%A1%BB%E8%AE%BE%E7%BD%AEcontry-code/images/42098105-7db3-4143-8601-daf3b4c41881.png" alt="Featured image of post 关于网卡频段设置（设置国家码）" /&gt;&lt;p&gt;起因：由于不同国家对应wifi和热点的频率可能会做现在，所有我们wif和ap设备出口到国外需要遵守别国的电波法。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; 比如日本的频段5G频段限制在140频段以下。如下限制[WLAN 2.4GHz、5G中国、日本可用信道介绍 - 知了社区 (h3c.com)](https://zhiliao.h3c.com/Theme/details/200064 &amp;quot;WLAN 2.4GHz、5G中国、日本可用信道介绍 - 知了社区 (h3c.com)&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/%E5%85%B3%E4%BA%8E%E7%BD%91%E5%8D%A1%E9%A2%91%E6%AE%B5%E8%AE%BE%E7%BD%AE%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%AE%B6%E7%A0%81_%E5%BD%93ap%E7%9A%84%E9%A2%91%E6%AE%B5%E8%A2%AB%E8%AE%BE%E7%BD%AE%E6%88%905g%E6%97%B6%E5%BF%85%E9%A1%BB%E8%AE%BE%E7%BD%AEcontry-code/images/42098105-7db3-4143-8601-daf3b4c41881.png&#34;
+	width=&#34;756&#34;
+	height=&#34;711&#34;
+	srcset=&#34;http://localhost:1313/post/%E5%85%B3%E4%BA%8E%E7%BD%91%E5%8D%A1%E9%A2%91%E6%AE%B5%E8%AE%BE%E7%BD%AE%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%AE%B6%E7%A0%81_%E5%BD%93ap%E7%9A%84%E9%A2%91%E6%AE%B5%E8%A2%AB%E8%AE%BE%E7%BD%AE%E6%88%905g%E6%97%B6%E5%BF%85%E9%A1%BB%E8%AE%BE%E7%BD%AEcontry-code/images/42098105-7db3-4143-8601-daf3b4c41881_hu_d2eb263b90d8e216.png 480w, http://localhost:1313/post/%E5%85%B3%E4%BA%8E%E7%BD%91%E5%8D%A1%E9%A2%91%E6%AE%B5%E8%AE%BE%E7%BD%AE%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%AE%B6%E7%A0%81_%E5%BD%93ap%E7%9A%84%E9%A2%91%E6%AE%B5%E8%A2%AB%E8%AE%BE%E7%BD%AE%E6%88%905g%E6%97%B6%E5%BF%85%E9%A1%BB%E8%AE%BE%E7%BD%AEcontry-code/images/42098105-7db3-4143-8601-daf3b4c41881_hu_65072f51c48c09ac.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;106&#34;
+		data-flex-basis=&#34;255px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;   目前英特尔的网卡是支持根据链接的AP的国家码自动切换频段的，而其他USB的网卡如Realtek网卡是不支持切换频段的，需要通过驱动厂商提供的工具和方法设置指定国家码。
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
